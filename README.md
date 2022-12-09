@@ -2,9 +2,9 @@
 
 ## Important Credinitals:
 
-1. AWS Account:
-`Email:` hazem20191702016@cis.asu.edu.eg
-`Password:` ZiadTrash@69
+1. AWS Account:__
+Email: hazem20191702016@cis.asu.edu.eg__
+Password: ZiadTrash@69__
 
 2. Database:
 Email: ecommercebuilder
