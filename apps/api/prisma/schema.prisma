@@ -10,28 +10,121 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-}
-
 model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
+  id          String    @id @default(uuid())
+  firstName   String
+  lastName    String
+  email       String    @unique
+  phoneNumber String
+  birthDate   DateTime?
+  address     String?
+  customer    Customer?
+  trader      Trader?
+  admin       Admin?
 }
 
-model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  posts   Post[]
-  profile Profile?
+model Customer {
+  id        String  @id @default(uuid())
+  gender    Boolean
+  profile   Profile @relation(fields: [profileId], references: [id])
+  profileId String  @unique
+  Order     Order[]
+}
+
+model Admin {
+  id        String  @id @default(uuid())
+  profile   Profile @relation(fields: [profileId], references: [id])
+  profileId String  @unique
+}
+
+// TRADER
+model Trader {
+  id          String    @id @default(uuid())
+  ssn         String    @unique
+  policy      String
+  description String
+  profile     Profile   @relation(fields: [profileId], references: [id])
+  profileId   String    @unique
+  Store       Store[]
+  Product     Product[]
+}
+
+model Store {
+  id                   String             @id @default(uuid())
+  name                 String
+  configuration        StoreConfiguration @relation(fields: [storeConfigurationId], references: [id])
+  storeConfigurationId String
+  trader               Trader             @relation(fields: [traderId], references: [id])
+  traderId             String
+  products             Product[]
+}
+
+model Section {
+  id         String    @id @default(uuid())
+  Template   Template? @relation(fields: [templateId], references: [id])
+  templateId String?
+}
+
+model Template {
+  id                  String               @id @default(uuid())
+  sections            Section[]
+  colorScheme         ColorScheme[]
+  StoreConfigurations StoreConfiguration[]
+}
+
+model ColorScheme {
+  id         String    @id @default(uuid())
+  Template   Template? @relation(fields: [templateId], references: [id])
+  templateId String?
+}
+
+model StoreConfiguration {
+  id           String   @id @default(uuid())
+  template     Template @relation(fields: [templateId], references: [id])
+  templateId   String
+  customDomain String
+  Store        Store[]
+}
+
+// PRODUCTS
+model Product {
+  id            String     @id @default(uuid())
+  name          String
+  price         Float
+  specification Json
+  image         String
+  quantity      Int
+  description   String
+  categories    Category[]
+  Store         Store?     @relation(fields: [storeId], references: [id])
+  storeId       String?
+  suppliedBy    Trader     @relation(fields: [traderId], references: [id])
+  traderId      String
+  Order         Order?     @relation(fields: [orderId], references: [id])
+  orderId       String?
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String
+  description String
+  products    Product[]
+}
+
+model Order {
+  id          String     @id @default(uuid())
+  products    Product[]
+  orderedBy   Customer   @relation(fields: [customerId], references: [id])
+  customerId  String
+  orderPrice  Float
+  discount    Float?
+  orderedAt   DateTime   @default(now())
+  deliveredAt DateTime?
+  state       OrderState
+}
+
+enum OrderState {
+  DELIVERED
+  INPROGRESS
+  CANCELLED
 }
