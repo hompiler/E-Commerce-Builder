@@ -1,5 +1,4 @@
 import commonTest from "common";
+import initApp from "./Server";
 
-console.log("BACKEND");
-
-commonTest();
+initApp();
