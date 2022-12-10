@@ -1,9 +1,11 @@
 import express from "express";
+const dotenv =require ('dotenv');
 const app = express();
-const port = 4040;
+dotenv.config ();
+const port = process.env.PORT;
 const initApp = () => {
     app.listen(port, () => {
-        console.log(`Connected at port${port}`);
+        console.log(`Connected at port ${port}`);
     });
 }
 
