@@ -82,6 +82,7 @@ export async function updateTrader(req: Request, res: Response, next: NextFuncti
     res.status(201).json(updatedTrader);
 
 }
+
 export async function deleteTrader(req: Request, res: Response, next: NextFunction) {
     const trader = await prisma.trader.findUnique({
         where: {
