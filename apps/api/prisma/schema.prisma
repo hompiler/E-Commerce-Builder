@@ -98,7 +98,7 @@ model Product {
   categories    Category[]
   Store         Store?     @relation(fields: [storeId], references: [id])
   storeId       String?
-  suppliedBy    Trader     @relation(fields: [traderId], references: [id])
+  suppliedBy    Trader?     @relation(fields: [traderId], references: [id])
   traderId      String
   Order         Order?     @relation(fields: [orderId], references: [id])
   orderId       String?
