@@ -2,6 +2,7 @@ import express from "express";
 import {traderRouter} from "./trader/routes/trader";
 import customerRouter from "./Customer/routes/customer"
 import productRouter from "./Product/routes/product";
+import storeRouter from "./store/routes/store";
 
 
 const dotenv = require("dotenv");
@@ -12,6 +13,7 @@ const port = process.env.PORT;
 app.use('/trader',traderRouter);
 app.use('/customer',customerRouter);
 app.use('/product',productRouter);
+app.use('/store',storeRouter);
 
 const initApp = () => {
   app.listen(port, () => {
