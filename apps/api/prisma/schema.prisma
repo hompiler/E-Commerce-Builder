@@ -88,26 +88,26 @@ model StoreConfiguration {
 
 // PRODUCTS
 model Product {
-  id            String     @id @default(uuid())
+  id            String    @id @default(uuid())
   name          String
   price         Float
   specification Json
   image         String
   quantity      Int
   description   String
-  categories    Category[]
-  Store         Store?     @relation(fields: [storeId], references: [id])
+  Categories    Category[]
+  Store         Store?  @relation(fields: [storeId], references: [id])
   storeId       String?
-  suppliedBy    Trader?     @relation(fields: [traderId], references: [id])
-  traderId      String
-  Order         Order?     @relation(fields: [orderId], references: [id])
+  suppliedBy    Trader?   @relation(fields: [traderId], references: [id])
+  traderId      String?
+  Order         Order?    @relation(fields: [orderId], references: [id])
   orderId       String?
 }
 
 model Category {
   id          String    @id @default(uuid())
-  name        String
-  description String
+  name        String?
+  description String?
   products    Product[]
 }
 
