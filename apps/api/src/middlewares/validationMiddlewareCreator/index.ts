@@ -5,7 +5,7 @@ export default function validationMiddlewareCreator(schema: any) {
         main: (req: express.Request, res: express.Response, next: express.NextFunction) => {
             try {
                 const validationResult = schema.parse(req.body);
-                res.status(200).json(validationResult)
+                next();
             } catch (validationError) {
                 res.status(400).json(validationError)
             }
@@ -13,7 +13,7 @@ export default function validationMiddlewareCreator(schema: any) {
         update: (req: express.Request, res: express.Response, next: express.NextFunction) => {
             try {
                 const validationResult = schema.deepPartial().parse(req.body);
-                res.status(200).json(validationResult)
+                next();
             } catch (validationError) {
                 res.status(400).json(validationError)
             }
