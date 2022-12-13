@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "dev": "nodemon ./src/index.ts",
-    "migrate": "npx prisma migrate dev --name init",
+    "migrate": "npx prisma migrate dev --name init && npx prisma generate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,7 +14,8 @@
     "@prisma/client": "^4.7.1",
     "common": "*",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "zod": "^3.20.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",

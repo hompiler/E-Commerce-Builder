@@ -40,9 +40,8 @@ model Admin {
 // TRADER
 model Trader {
   id          String    @id @default(uuid())
-  ssn         String    @unique
-  policy      String
-  description String
+  policy      String?
+  description String?
   profile     Profile   @relation(fields: [profileId], references: [id])
   profileId   String    @unique
   Store       Store[]
