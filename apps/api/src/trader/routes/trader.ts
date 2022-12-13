@@ -7,7 +7,7 @@ export const traderRouter = Router();
 
 const {main, update} = validationMiddlewareCreator(TraderSchema);
 traderRouter.post('/', main, addTrader);
+traderRouter.patch('/:id', update, updateTrader);
 traderRouter.get('/', getAllTraders);
 traderRouter.get('/:id', getTraderById);
-traderRouter.patch('/:id', update, updateTrader);
 traderRouter.delete('/:id', deleteTrader);

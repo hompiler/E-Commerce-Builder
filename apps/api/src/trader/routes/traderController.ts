@@ -1,7 +1,6 @@
 import {NextFunction, Request, Response} from "express";
 
 import prisma from "../../db";
-import {TraderSchema} from "../../models/users/trader";
 
 export async function addTrader(
     req: Request,
@@ -9,7 +8,7 @@ export async function addTrader(
     next: NextFunction
 ) {
 
-    return;
+
     const createdTrader = await prisma.trader.create({
         data: {
             policy: req.body.policy,
