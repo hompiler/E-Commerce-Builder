@@ -1,4 +1,4 @@
-import prisma from "../../db";
+import prisma from "@database/prisma";
 import { NextFunction, Request, Response } from "express";
 
 export async function addProduct(

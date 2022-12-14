@@ -1,5 +1,5 @@
 import express from "express";
-import prisma from "../db";
+import prisma from "@database/prisma";
 
 export async function addCategory(request: express.Request, response: express.Response, next: express.NextFunction) {
     const createdCategory = await prisma.category.create({

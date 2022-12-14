@@ -1,6 +1,6 @@
 import {z} from "zod";
 import { CategorySchema } from "./category";
-import { storeSchema } from "../Store/store";
+import { storeSchema } from "../store/store";
 import { TraderSchema } from "../users/trader";
 export const productSchema = z.object({
     name : z.string().min(3, {message: "please enter a valid name"}),

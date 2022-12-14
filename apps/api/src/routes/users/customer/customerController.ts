@@ -1,5 +1,5 @@
-import prisma from "../../db";
-import { NextFunction, Request, Response } from "express";
+import prisma from "@database/prisma";
+import {NextFunction, Request, Response} from "express";
 
 
 export async function addCustomer(req: Request, res: Response, next: NextFunction) {
@@ -48,7 +48,7 @@ export async function updateCustomer(req: Request, res: Response, next: NextFunc
     });
 
     console.log(customer);
-    
+
     const updatedCustomerProfile = await prisma.profile.update({
         where: {
             id: customer.profileId
@@ -70,7 +70,6 @@ export async function updateCustomer(req: Request, res: Response, next: NextFunc
     res.status(201).json(updatedCustomerProfile);
 
 }
-
 
 
 export async function deleteCustomer(req: Request, res: Response, next: NextFunction) {

@@ -1,6 +1,5 @@
-
-import prisma from "../../db";
-import { Request, Response, NextFunction } from 'express';
+import prisma from "@database/prisma";
+import {Request, Response, NextFunction} from 'express';
 
 
 export async function createStore(req: Request, res: Response, next: NextFunction) {
@@ -32,7 +31,7 @@ export async function updateStore(req: Request, res: Response, next: NextFunctio
         where: {
             id: req.params.id
         },
-        data : {
+        data: {
             ...req.body
         }
     });

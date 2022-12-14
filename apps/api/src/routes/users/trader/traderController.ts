@@ -1,6 +1,6 @@
 import {NextFunction, Request, Response} from "express";
+import prisma from "@database/prisma";
 
-import prisma from "../../db";
 
 export async function addTrader(
     req: Request,
