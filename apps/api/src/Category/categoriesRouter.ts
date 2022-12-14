@@ -1,6 +1,6 @@
 import {Router} from "express";
 import validationMiddlewareCreator from "../middlewares/validationMiddlewareCreator";
-import {CategorySchema} from "../models/products/product";
+import {CategorySchema} from "../models/products/category";
 import {addCategory, deleteCategory, getAllCategories, getCategoryById, updateCategory} from "./categoriesController";
 
 export const categoriesRouter = Router();
