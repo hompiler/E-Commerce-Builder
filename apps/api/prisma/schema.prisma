@@ -24,11 +24,13 @@ model Profile {
 }
 
 model Customer {
-  id        String  @id @default(uuid())
+  id        String   @id @default(uuid())
   gender    Boolean?
-  profile   Profile @relation(fields: [profileId], references: [id])
-  profileId String  @unique
+  profile   Profile  @relation(fields: [profileId], references: [id])
+  profileId String   @unique
   Order     Order[]
+  store     Store    @relation(fields: [storeId], references: [id])
+  storeId   String
 }
 
 model Admin {
@@ -44,18 +46,18 @@ model Trader {
   description String?
   profile     Profile   @relation(fields: [profileId], references: [id])
   profileId   String    @unique
-  Store       Store[]
-  Product     Product[]
+  store       Store[]
 }
 
 model Store {
   id                   String             @id @default(uuid())
   name                 String
-  configuration        StoreConfiguration @relation(fields: [storeConfigurationId], references: [id])
-  storeConfigurationId String
+  configuration        StoreConfiguration? @relation(fields: [storeConfigurationId], references: [id])
+  storeConfigurationId String?
   trader               Trader             @relation(fields: [traderId], references: [id])
   traderId             String
   products             Product[]
+  Customer             Customer[]
 }
 
 model Section {
@@ -82,7 +84,7 @@ model StoreConfiguration {
   template     Template @relation(fields: [templateId], references: [id])
   templateId   String
   customDomain String
-  Store        Store[]
+  store        Store[]
 }
 
 // PRODUCTS
@@ -91,14 +93,12 @@ model Product {
   name          String
   price         Float
   specification Json
-  image         String
+  images         String[]
   quantity      Int
   description   String
   Categories    Category[]
-  Store         Store?     @relation(fields: [storeId], references: [id])
-  storeId       String?
-  suppliedBy    Trader?    @relation(fields: [traderId], references: [id])
-  traderId      String?
+  store         Store     @relation(fields: [storeId], references: [id])
+  storeId       String
   Order         Order?     @relation(fields: [orderId], references: [id])
   orderId       String?
 }

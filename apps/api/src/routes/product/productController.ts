@@ -1,4 +1,5 @@
 import prisma from "@database/prisma";
+import { getTraderById } from "@routes/users/trader/traderController";
 import { NextFunction, Request, Response } from "express";
 
 export async function addProduct(
@@ -6,9 +7,13 @@ export async function addProduct(
   res: Response,
   next: NextFunction
 ) {
+  const { storeId, ...rest } = req.body;
   const createdProduct = await prisma.product.create({
-    data: {
-      ...req.body,
+
+    data: { ...rest,
+      store : {
+        connect : {id : storeId}
+      }
     },
   });
 

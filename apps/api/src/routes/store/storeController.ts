@@ -3,8 +3,13 @@ import {Request, Response, NextFunction} from 'express';
 
 
 export async function createStore(req: Request, res: Response, next: NextFunction) {
+    const{traderId,...rest} = req.body
     const createdStore = await prisma.store.create({
-        data: req.body
+        data: {...rest,
+        trader : {
+            connect : {id :traderId}
+        }        
+        }
     })
     res.status(200).json(createStore);
 }
