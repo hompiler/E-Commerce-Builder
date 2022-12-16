@@ -1,6 +1,11 @@
-import {boolean, z} from "zod";
-import {ProfileSchema} from "./profile"
-export const customerSchema =z.object({
-    gender :z.boolean(),
-    profile : ProfileSchema
+import {z} from "zod";
+import {ProfileSchema} from "@models/users/profile";
+
+
+export const CustomerSchema = z.object({
+    gender: z.boolean().optional(),
+    profile: ProfileSchema
 })
+
+type Customer = z.infer<typeof CustomerSchema>;
+export default Customer;

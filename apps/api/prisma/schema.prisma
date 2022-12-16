@@ -25,7 +25,7 @@ model Profile {
 
 model Customer {
   id        String  @id @default(uuid())
-  gender    Boolean
+  gender    Boolean?
   profile   Profile @relation(fields: [profileId], references: [id])
   profileId String  @unique
   Order     Order[]

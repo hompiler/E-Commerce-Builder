@@ -2,8 +2,8 @@ import {z} from "zod";
 import {ProfileSchema} from "./profile"
 
 export const TraderSchema = z.object({
-    policy: z.string().nullable(),
-    description: z.string().nullable(),
+    policy: z.string().optional(),
+    description: z.string().optional(),
     profile: ProfileSchema,
 });
 

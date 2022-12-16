@@ -3,19 +3,16 @@ import {NextFunction, Request, Response} from "express";
 
 
 export async function addCustomer(req: Request, res: Response, next: NextFunction) {
+    const {profile, ...rest} = req.body;
+
     const createdCustomer = await prisma.customer.create({
         data: {
-            gender: req.body.gender,
+            ...rest,
             profile: {
-                create: {
-                    firstName: req.body.profile.firstName,
-                    lastName: req.body.profile.lastName,
-                    email: req.body.profile.email,
-                    phoneNumber: req.body.profile.phoneNumber,
-                    birthDate: new Date(),
-                    address: req.body.profile.address
-                }
+                create: profile,
             }
+        }, include: {
+            profile: true,
         }
     })
     res.status(200).json(createdCustomer);
@@ -24,7 +21,11 @@ export async function addCustomer(req: Request, res: Response, next: NextFunctio
 
 
 export async function getAllCustomers(req: Request, res: Response, next: NextFunction) {
-    const allCustomers = await prisma.customer.findMany();
+    const allCustomers = await prisma.customer.findMany({
+        include: {
+            profile: true,
+        }
+    });
     res.status(200).json(allCustomers);
 
 }
@@ -33,6 +34,8 @@ export async function getCustomerById(req: Request, res: Response, next: NextFun
     const Customer = await prisma.customer.findUnique({
         where: {
             id: req.params.id
+        }, include: {
+            profile: true,
         }
     });
 
@@ -56,17 +59,15 @@ export async function updateCustomer(req: Request, res: Response, next: NextFunc
         data: req.body.profile
     })
 
-    // const updatedCustomer = await prisma.customer.update({
-    //     where: {
-    //         id: req.params.id
-
-    //     },
-    //     data: {
-    //         ssn: req.body.ssn,
-    //         policy: req.body.policy,
-    //         description: req.body.description,
-    //     }
-    // });
+    const updatedCustomer = await prisma.customer.update({
+        where: {
+            id: req.params.id
+        },
+        data: req.body,
+        include: {
+            profile: true,
+        }
+    });
     res.status(201).json(updatedCustomerProfile);
 
 }

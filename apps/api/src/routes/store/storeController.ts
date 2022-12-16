@@ -4,9 +4,7 @@ import {Request, Response, NextFunction} from 'express';
 
 export async function createStore(req: Request, res: Response, next: NextFunction) {
     const createdStore = await prisma.store.create({
-        data: {
-            ...req.body
-        }
+        data: req.body
     })
     res.status(200).json(createStore);
 }

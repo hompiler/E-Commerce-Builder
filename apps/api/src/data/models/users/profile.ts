@@ -6,7 +6,9 @@ export const ProfileSchema = z.object({
     lastName: nameSchema,
     email: z.string().email({message: "Must be a valid email"}),
     phoneNumber: z.string(),
-    birtDate: z.date().optional(),
+    birtDate: z.date({
+        invalid_type_error: "date must be in YYYY-MM-ddThh:mm:ss"
+    }).optional(),
     address: z.string().optional(),
 })
 

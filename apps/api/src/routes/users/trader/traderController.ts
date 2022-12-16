@@ -8,24 +8,20 @@ export async function addTrader(
     next: NextFunction
 ) {
 
+    const {profile, ...rest} = req.body;
 
     const createdTrader = await prisma.trader.create({
         data: {
-            policy: req.body.policy,
-            description: req.body.description,
+            ...rest,
             profile: {
-                create: {
-                    firstName: req.body.profile.firstName,
-                    lastName: req.body.profile.lastName,
-                    email: req.body.profile.email,
-                    phoneNumber: req.body.profile.phoneNumber,
-                    birthDate: new Date(),
-                    address: req.body.profile.address,
-                },
+                create: profile,
             },
         },
+        include: {
+            profile: true,
+        }
     });
-    res.status(201).json(createdTrader);
+    res.status(201).send(createdTrader);
 }
 
 export async function getAllTraders(
@@ -33,8 +29,12 @@ export async function getAllTraders(
     res: Response,
     next: NextFunction
 ) {
-    const allTraders = await prisma.trader.findMany();
-    res.status(200).json(allTraders);
+    const allTraders = await prisma.trader.findMany({
+        include: {
+            profile: true,
+        }
+    });
+    res.status(200).send(allTraders);
 }
 
 export async function getTraderById(
@@ -45,9 +45,11 @@ export async function getTraderById(
     const trader = await prisma.trader.findUnique({
         where: {
             id: req.params.id,
-        },
+        }, include: {
+            profile: true,
+        }
     });
-    res.status(200).json(trader);
+    res.status(200).send(trader);
 }
 
 export async function updateTrader(
@@ -59,6 +61,7 @@ export async function updateTrader(
         where: {
             id: req.params.id,
         },
+
     });
     const updatedTraderProfile = await prisma.profile.update({
         where: {
@@ -75,9 +78,12 @@ export async function updateTrader(
             policy: req.body.policy,
             description: req.body.description,
         },
+        include: {
+            profile: true,
+        }
     });
 
-    res.status(201).json(updatedTrader);
+    res.status(201).send(updatedTrader);
 }
 
 export async function deleteTrader(
@@ -101,7 +107,7 @@ export async function deleteTrader(
         },
     });
 
-    res.status(204).json({
+    res.status(204).send({
         message: "deleted successfully",
     });
 }
