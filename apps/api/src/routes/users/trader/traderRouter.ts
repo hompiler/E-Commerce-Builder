@@ -6,7 +6,7 @@ import validationMiddlewareCreator from "@middlewares/validationMiddlewareCreato
 const traderRouter = Router();
 
 const {main, update} = validationMiddlewareCreator(TraderSchema);
-traderRouter.post('/', main, addTrader);
+traderRouter.post('/',  addTrader);
 traderRouter.patch('/:id', update, updateTrader);
 traderRouter.get('/', getAllTraders);
 traderRouter.get('/:id', getTraderById);
