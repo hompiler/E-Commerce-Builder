@@ -21,6 +21,7 @@ model Profile {
   customer    Customer?
   trader      Trader?
   admin       Admin?
+  password    String
 }
 
 model Customer {
@@ -41,20 +42,20 @@ model Admin {
 
 // TRADER
 model Trader {
-  id          String    @id @default(uuid())
+  id          String  @id @default(uuid())
   policy      String?
   description String?
-  profile     Profile   @relation(fields: [profileId], references: [id])
-  profileId   String    @unique
+  profile     Profile @relation(fields: [profileId], references: [id])
+  profileId   String  @unique
   store       Store[]
 }
 
 model Store {
-  id                   String             @id @default(uuid())
+  id                   String              @id @default(uuid())
   name                 String
   configuration        StoreConfiguration? @relation(fields: [storeConfigurationId], references: [id])
   storeConfigurationId String?
-  trader               Trader             @relation(fields: [traderId], references: [id])
+  trader               Trader              @relation(fields: [traderId], references: [id])
   traderId             String
   products             Product[]
   Customer             Customer[]
@@ -93,11 +94,11 @@ model Product {
   name          String
   price         Float
   specification Json
-  images         String[]
+  images        String[]
   quantity      Int
   description   String
   Categories    Category[]
-  store         Store     @relation(fields: [storeId], references: [id])
+  store         Store      @relation(fields: [storeId], references: [id])
   storeId       String
   Order         Order?     @relation(fields: [orderId], references: [id])
   orderId       String?
