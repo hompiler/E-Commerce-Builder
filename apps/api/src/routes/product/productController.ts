@@ -1,7 +1,7 @@
 import prisma from "@database/prisma";
 import { getTraderById } from "@routes/users/trader/traderController";
 import { NextFunction, Request, Response } from "express";
-
+import { ApiFeatures } from "@middlewares/validationMiddlewareCreator/apiFeatures";
 export async function addProduct(
   req: Request,
   res: Response,
@@ -24,7 +24,10 @@ export async function getAllProducts(
   res: Response,
   next: NextFunction
 ) {
-  const allProducts = await prisma.product.findMany();
+  const feautres =new ApiFeatures(req);
+  const allProducts = await prisma.product.findMany(
+    feautres.all()
+  );
   res.status(200).json(allProducts);
 }
 

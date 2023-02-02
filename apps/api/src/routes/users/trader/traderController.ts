@@ -1,6 +1,6 @@
 import {NextFunction, Request, Response} from "express";
 import prisma from "@database/prisma";
-
+import { ApiFeatures } from "@middlewares/validationMiddlewareCreator/apiFeatures";
 
 export async function addTrader(
     req: Request,
@@ -29,10 +29,9 @@ export async function getAllTraders(
     res: Response,
     next: NextFunction
 ) {
+    const feautres = new ApiFeatures(req);
     const allTraders = await prisma.trader.findMany({
-        include: {
-            profile: true,
-        }
+        select: feautres.fields()
     });
     res.status(200).send(allTraders);
 }

@@ -1,21 +1,27 @@
 import prisma from "@database/prisma";
-import {Request, Response, NextFunction} from 'express';
-
+import { Request, Response, NextFunction } from 'express';
+import { ApiFeatures } from "@middlewares/validationMiddlewareCreator/apiFeatures";
 
 export async function createStore(req: Request, res: Response, next: NextFunction) {
-    const{traderId,...rest} = req.body
+    const { traderId, ...rest } = req.body
     const createdStore = await prisma.store.create({
-        data: {...rest,
-        trader : {
-            connect : {id :traderId}
-        }        
+        data: {
+            ...rest,
+            trader: {
+                connect: { id: traderId }
+            }
         }
     })
     res.status(200).json(createStore);
 }
 
 export async function getStores(req: Request, res: Response, next: NextFunction) {
-    const allStores = await prisma.store.findMany();
+    const feautres = new ApiFeatures(req);
+
+    const allStores = await prisma.store.findMany(
+        feautres.all()
+    );
+
     res.status(200).json(allStores);
 }
 
