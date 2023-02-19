@@ -4,6 +4,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apps/admin-dashboard" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apps/customer-store" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/apps/seller-dashboard" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/apps/trader-dashboard" vcs="Git" />
   </component>
 </project>
