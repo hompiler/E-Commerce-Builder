@@ -1,0 +1,33 @@
+.builderLayout {
+    height: 100vh;
+    width: 100vmax;
+    background: white;
+    color: black;
+    display: grid;
+    grid-template-columns: 135px 1fr 250px;
+    grid-template-rows: 35px 1fr;
+    grid-template-areas:
+        "nav head aside"
+        "nav main aside";
+}
+
+.builderLayout nav, .builderLayout header, .builderLayout aside {
+    background: #404040;
+}
+
+.builderLayout > nav {
+    grid-area: nav;
+}
+
+.builderLayout > header {
+    grid-area: head;
+}
+
+.builderLayout > aside {
+    grid-area: aside;
+}
+
+.builderLayout > main {
+    grid-area: main;
+}
+
