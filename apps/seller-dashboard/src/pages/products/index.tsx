@@ -1,0 +1,1 @@
+export {default, getServerSideProps} from "../../features/products/ui/ProductPage";

@@ -42,6 +42,21 @@
       ],
       "@studio/*": [
         "./src/features/studio/*"
+      ],
+      "@api-client": [
+        "./src/lib/api-client"
+      ],
+      "@api-client/*": [
+        "./src/lib/api-client/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "@types": [
+        "./src/types"
+      ],
+      "@types/*": [
+        "./src/types/*"
       ]
     }
   },

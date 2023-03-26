@@ -8,6 +8,11 @@
 }
 
 html {
+  background: $color-background;
+  color: $color-on-background;
+}
+
+html {
   --font-mono: 'Montserrat', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
   'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
   'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
