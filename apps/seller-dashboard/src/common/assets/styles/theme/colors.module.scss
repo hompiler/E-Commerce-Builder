@@ -1,18 +1,4 @@
-$color-primary: #E64F30;
-$color-on-primary: #ffffff;
-$color-background: #101010;
-$color-on-background: #ffffff;
-$color-on-background-unfocused: #404040;
-$color-surface-variant: #161616;
-$color-on-surface-variant: #ffffff;
-$color-surface: #202020;
-$color-on-surface: #ffffff;
-$color-borders: #222222;
-$color-secondary: #404040;
-$color-on-secondary: #ffffff;
-
-
-
+@use "colors" as *;
 
 :export {
   primary: $color-primary;
