@@ -17,8 +17,8 @@ export default function EditorMode({}) {
             "div",
             {
                 padding: {
-                    value: "16px"
-                }
+                    value: "16px",
+                },
             },
             new Item(
                 "header1",
@@ -34,8 +34,8 @@ export default function EditorMode({}) {
                 {
                     background: { value: "red" },
                     padding: {
-                        value: "16px"
-                    }
+                        value: "16px",
+                    },
                 },
                 `Lorem Ipsum is simply dummy text of the printing and typesetting
                 industry. Lorem Ipsum has been the industry's standard dummy
@@ -52,6 +52,9 @@ export default function EditorMode({}) {
                 "dev1",
                 "dev",
                 {
+                    display: {
+                        value: "block",
+                    },
                     color: {
                         value: "#363636",
                     },
@@ -59,7 +62,7 @@ export default function EditorMode({}) {
                         value: "16px",
                     },
                     background: {
-                        value: "pink",
+                        value: "black",
                     },
                 },
                 new Item(
@@ -115,12 +118,13 @@ export default function EditorMode({}) {
     );
 
     function onSelect(levels: number[]) {
-        console.log({levels})
+        console.log({ levels });
         if (levels[0] === -1) {
             console.log(homeChildren);
-        }
-        else {
-
+        } else {
+            levels.forEach((level) => {
+                console.log(homeChildren.children[level]);
+            });
         }
     }
 

@@ -41,6 +41,7 @@ export default class Item {
             {
                 id: this.id,
                 onClick: (e) => {
+                    e.stopPropagation();
                     onClick(levelsValue);
                 },
             },
