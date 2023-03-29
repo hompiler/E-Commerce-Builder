@@ -11,10 +11,15 @@ import Item from "@studio/domain/models/item";
 interface StudioLayoutProps {
     page: any;
     onAddItem: (item: Item) => any;
+    onSelect: (levels: number[]) => any;
     // allPages: any;
 }
 
-export default function StudioLayout({ page, onAddItem }: StudioLayoutProps) {
+export default function StudioLayout({
+    page,
+    onAddItem,
+    onSelect,
+}: StudioLayoutProps) {
     const [selectedPane, setSelectedPane] = useState<string>("");
     const panes = useMemo<{
         [feature: string]: { title: string; component: React.ReactNode };
@@ -55,7 +60,9 @@ export default function StudioLayout({ page, onAddItem }: StudioLayoutProps) {
                 {panes[selectedPane]?.component ?? <div>In Dev</div>}
             </aside>
             <aside className={styles.propsPane}></aside>
-            <MainCanvas className={styles.studio}>{page}</MainCanvas>
+            <MainCanvas className={styles.studio} onSelect={onSelect}>
+                {page}
+            </MainCanvas>
         </div>
     );
 }

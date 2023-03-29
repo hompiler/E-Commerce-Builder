@@ -1,14 +1,19 @@
 import React, { useMemo } from "react";
 import styles from "./MainCanvas.module.scss";
 
-export default function MainCanvas({ className, children: page }: any) {
+export default function MainCanvas({
+    className,
+    children: page,
+    onSelect,
+}: any) {
     const colors = {
         primary: "#e64f30",
         onPrimary: "#fff",
         background: "#fff",
         onBackground: "#000",
     };
-    const pageBody = useMemo(() => page.getUIComponent(), [page]);
+
+    const pageBody = useMemo(() => page.getUIComponent(onSelect), [page]);
     return (
         <div
             id="marketmate-studio"
@@ -35,9 +40,6 @@ export default function MainCanvas({ className, children: page }: any) {
                 </nav>
                 <main
                     // dangerouslySetInnerHTML={{ __html: page.html }}
-                    style={{
-                        padding: "24px",
-                    }}
                 >
                     {pageBody.component}
                 </main>

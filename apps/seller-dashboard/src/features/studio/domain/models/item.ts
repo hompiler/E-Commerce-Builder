@@ -25,15 +25,28 @@ export default class Item {
 
     // private traverse() {}
 
-    private generateDocumentComponent(): ReactElement {
+    private generateDocumentComponent(
+        onClick: any,
+        index: number = 0,
+        levels: number[] = []
+    ): ReactElement {
+        const levelsValue =
+            levels[0] === undefined
+                ? [-1]
+                : levels[0] === -1
+                ? [index]
+                : [...levels, index];
         const component = React.createElement(
             this.type,
             {
                 id: this.id,
+                onClick: (e) => {
+                    onClick(levelsValue);
+                },
             },
-            ...this.children.map((child) =>
+            ...this.children.map((child, i) =>
                 child instanceof Item
-                    ? child.generateDocumentComponent()
+                    ? child.generateDocumentComponent(onClick, i, levelsValue)
                     : child
             )
         );
@@ -48,7 +61,9 @@ export default class Item {
                 }
                 return prev;
             },
-            {}
+            {
+                [this.id]: this.styles,
+            }
         );
 
         const stylesString = Object.entries(prevStyles)
@@ -64,8 +79,11 @@ export default class Item {
         return stylesString;
     }
 
-    public getUIComponent(): { component: ReactElement; styles: string } {
-        const component = this.generateDocumentComponent();
+    public getUIComponent(onClick: any): {
+        component: ReactElement;
+        styles: string;
+    } {
+        const component = this.generateDocumentComponent(onClick);
         const styles = this.generateStyles();
 
         return { component, styles };
