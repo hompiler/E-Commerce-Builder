@@ -1,6 +1,8 @@
 import prisma from "@database/prisma";
 import { NextFunction, Request, Response } from "express";
 import { ApiFeatures } from "@middlewares/validationMiddlewareCreator/apiFeatures";
+import { profile } from "console";
+
 
 export async function addCustomer(req: Request, res: Response, next: NextFunction) {
     const { profile, storeId, ...rest } = req.body;
@@ -20,16 +22,28 @@ export async function addCustomer(req: Request, res: Response, next: NextFunctio
             profile: true,
         }
     })
-    res.status(200).json(createdCustomer);
+    
+
+    res.status(200).json({
+  
+        data: {
+            createdCustomer
+        }
+
+    });
 
 }
 
 
 export async function getAllCustomers(req: Request, res: Response, next: NextFunction) {
- 
-    const feautres = new ApiFeatures(req);   
+
+    const feautres = new ApiFeatures(req);
     const allCustomers = await prisma.customer.findMany(
-        feautres.all()
+        {
+            include : {
+                profile : true
+            }
+        }
     );
     res.status(200).json(allCustomers);
 

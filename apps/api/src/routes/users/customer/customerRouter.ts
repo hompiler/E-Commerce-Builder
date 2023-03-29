@@ -8,7 +8,7 @@ import {
 } from "./customerController";
 import validationMiddlewareCreator from "@middlewares/validationMiddlewareCreator";
 import { CustomerSchema } from "@models/users/customer";
-import { signIn, signUp } from "authentication/customer";
+import { customerSignUp, customerSignIn } from "auth/customer";
 
 const customerRouter = Router();
 
@@ -18,6 +18,6 @@ customerRouter.patch("/:id", update, updateCustomer);
 customerRouter.get("/", getAllCustomers);
 customerRouter.get("/:id", getCustomerById);
 customerRouter.delete("/:id", deleteCustomer);
-customerRouter.post("/signup", signUp);
-customerRouter.post("/signIn", signIn);
+customerRouter.post("/signup", customerSignUp);
+customerRouter.post("/signIn", customerSignIn);
 export default customerRouter;

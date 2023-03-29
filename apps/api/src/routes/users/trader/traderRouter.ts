@@ -8,7 +8,7 @@ import {
 } from "./traderController";
 import { TraderSchema } from "@models/users/trader";
 import validationMiddlewareCreator from "@middlewares/validationMiddlewareCreator";
-import { signIn, signUp } from "authentication/trader";
+import { signIn, signUp } from "auth/trader";
 
 const traderRouter = Router();
 
