@@ -1,0 +1,83 @@
+@import "@styles/theme/colors.scss";
+@import "@styles/lib/positioning.scss";
+@import "@styles/lib/behaviors.scss";
+
+$dimen-w-nav: 68px;
+$dimen-w-edit-aside: auto;
+$dimen-w-props-aside: 240px;
+$dimen-w-studio: 1fr;
+$dimen-h-studio: 1fr;
+$dimen-h-header: 68px;
+$border-studio: 1px solid $color-borders;
+$color-background-canvas: #171717;
+
+
+.layout {
+  @include unselectable;
+  display: grid;
+  height: 100vh;
+  overflow: hidden;
+  background: $color-background;
+  color: $color-on-background;
+  grid-template-areas:
+    "logo header header header"
+    "nav    edit   main   props ";
+  grid-template-columns:
+            $dimen-w-nav $dimen-w-edit-aside $dimen-w-studio $dimen-w-props-aside;
+  grid-template-rows: $dimen-h-header $dimen-h-studio;
+}
+
+.logo {
+  @include centered;
+  grid-area: logo;
+  border-inline-end: $border-studio;
+  border-bottom: $border-studio;
+}
+
+.header {
+  grid-area: header;
+  border-bottom: $border-studio;
+}
+
+.nav {
+  grid-area: nav;
+  border-inline-end: $border-studio;
+}
+
+.editPane {
+  background: $color-background;
+  z-index: 2;
+  width: 0;
+  overflow-x: hidden;
+  transition: width 30ms ease-in-out;
+  grid-area: edit;
+  border-inline-end: $border-studio;
+
+  &.editOpen {
+    width: 260px;
+  }
+
+  & > * {
+    overflow-x: hidden;
+    width: 259px;
+    min-width: 259px;
+    padding: 16px;
+  }
+}
+
+.propsPane {
+  grid-area: props;
+  border-inline-start: $border-studio;
+}
+
+.studio {
+  grid-area: main;
+  margin-inline: auto;
+  overflow-y: auto;
+  margin-top: 8px;
+  max-width: calc(100vw - 260px - $dimen-w-props-aside - $dimen-w-nav - 16px);
+  min-width: 400px;
+  //grid-column: 2/4;
+  resize: horizontal;
+  background: $color-background-canvas;
+}

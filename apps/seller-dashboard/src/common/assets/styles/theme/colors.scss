@@ -1,0 +1,44 @@
+$color-primary: #E64F30;
+$color-on-primary: #ffffff;
+$color-background: #101010;
+$color-on-background: #ffffff;
+$color-on-background-unfocused: #404040;
+$color-surface-variant: #161616;
+$color-on-surface-variant: #ffffff;
+$color-surface: #202020;
+$color-on-surface: #ffffff;
+$color-borders: #222222;
+$color-secondary: #404040;
+$color-on-secondary: #ffffff;
+
+
+
+@mixin handle-svg($color, $stroke-based: false) {
+  @if ($stroke-based) {
+    stroke: $color;
+  } @else {
+    fill: $color;
+  }
+}
+
+@mixin color-primary-item($stroke-based: false) {
+  color: $color-on-primary;
+  background: $color-primary;
+  fill: $color-on-primary;
+  @include handle-svg($color-on-primary, $stroke-based);
+}
+
+.color-primary-item {
+  @include color-primary-item;
+}
+
+//@mixin color-primary-container-item($stroke-based: false) {
+//  background: $color-primary-container;
+//  color: $color-on-primary-container;
+//  @include handle-svg($color-on-primary-container, $stroke-based);
+//}
+
+//.color-primary-container-item {
+//  @include color-primary-container-item
+//}
+
