@@ -13,7 +13,10 @@ export default function MainCanvas({
         onBackground: "#000",
     };
 
-    const pageBody = useMemo(() => page.getUIComponent(onSelect), [page]);
+    const pageBody = useMemo(() => {
+        console.log({ page });
+        return page.getUIComponent(onSelect);
+    }, [page]);
     return (
         <div
             id="marketmate-studio"
@@ -39,7 +42,7 @@ export default function MainCanvas({
                     Nav
                 </nav>
                 <main
-                    // dangerouslySetInnerHTML={{ __html: page.html }}
+                // dangerouslySetInnerHTML={{ __html: page.html }}
                 >
                     {pageBody.component}
                 </main>

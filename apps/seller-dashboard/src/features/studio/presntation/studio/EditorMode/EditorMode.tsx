@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./EditorMode.module.scss";
 import StudioLayout from "@studio/presntation/layout";
 import testing from "@studio/testing";
@@ -11,6 +11,7 @@ export default function EditorMode({}) {
     // const router = useRouter();
     // const currentPageKey: string = router.query.page?.toString() ?? "home";
     // const currentPage = testingPages[currentPageKey];
+
     const [homeChildren, setHomeChildren] = useState(
         new Item(
             "home-page",
@@ -49,8 +50,8 @@ export default function EditorMode({}) {
                 Lorem Ipsum.`
             ),
             new Item(
-                "dev1",
-                "dev",
+                "div1",
+                "div",
                 {
                     display: {
                         value: "block",
@@ -66,9 +67,12 @@ export default function EditorMode({}) {
                     },
                 },
                 new Item(
-                    "dev2",
-                    "dev",
+                    "div2",
+                    "dv",
                     {
+                        display: {
+                            value: "block",
+                        },
                         color: {
                             value: "#363636",
                         },
@@ -82,8 +86,8 @@ export default function EditorMode({}) {
                     "hehe"
                 ),
                 new Item(
-                    "dev3",
-                    "dev",
+                    "div3",
+                    "div",
                     {
                         color: {
                             value: "red",
@@ -116,24 +120,93 @@ export default function EditorMode({}) {
             )
         )
     );
+    const [selectedLevels, setSelectedLevels] = useState([-1]);
+    const previousSelectedLevels = useRef<number[]>();
+    const [newItem, setNewItem] = useState<Item>();
+    // const selectedItem = useMemo(
+    //     () => getSelectedItems(selectedLevels),
+    //     [selectedLevels]
+    // );
+    // console.log({ selectedItem });
 
-    function onSelect(levels: number[]) {
-        console.log({ levels });
+    useEffect(() => {
+        console.log({
+            selectedLevels: JSON.stringify(selectedLevels),
+            previousSelectedLevels: JSON.stringify(
+                previousSelectedLevels.current ?? []
+            ),
+        });
+        if (
+            JSON.stringify(previousSelectedLevels.current ?? []) ===
+            JSON.stringify(selectedLevels)
+        )
+            return;
+        const copy = homeChildren.clone();
+        const element = getSelectedItems(copy, selectedLevels);
+        element.styles = {
+            ...element.styles,
+            outline: {
+                value: "4px solid blue",
+            },
+        };
+        console.log({ element });
+
+        if (previousSelectedLevels.current) {
+            const previousElement = getSelectedItems(
+                copy,
+                previousSelectedLevels.current
+            );
+            previousElement.styles = {
+                ...previousElement.styles,
+                outline: {
+                    value: "none",
+                },
+            };
+        }
+        previousSelectedLevels.current = selectedLevels;
+
+        console.log({ copy });
+        setHomeChildren(copy);
+    }, [JSON.stringify(selectedLevels)]);
+
+    useEffect(() => {
+        console.log({ homeChildren });
+    }, [homeChildren]);
+
+    function getSelectedItems(root: Item, levels: number[]) {
         if (levels[0] === -1) {
-            console.log(homeChildren);
+            return root;
         } else {
-            levels.forEach((level) => {
-                console.log(homeChildren.children[level]);
-            });
+            const element = levels.reduce((prev: any, level) => {
+                if (typeof prev === "undefined") return root.children[level];
+                else return prev.children[level];
+            }, undefined);
+
+            return element;
         }
     }
+
+    function onAddItem(item: Item) {
+        console.log("hehe");
+        console.log({ item });
+    }
+
+    useEffect(() => {
+        if (!newItem) return;
+        const copy = homeChildren.clone();
+        console.log({ selectedLevels });
+        const element = getSelectedItems(copy, selectedLevels);
+        element.children.push(newItem);
+        setHomeChildren(copy);
+        setNewItem(undefined);
+    }, [newItem]);
 
     return (
         <>
             <StudioLayout
                 page={homeChildren}
-                onSelect={onSelect}
-                // onAddItem={(item) => setHomeChildren((prev) => [...prev, item])}
+                onSelect={setSelectedLevels}
+                onAddItem={(item) => setNewItem(item)}
             />
         </>
     );

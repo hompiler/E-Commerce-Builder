@@ -54,11 +54,12 @@ export default class Item {
         return component;
     }
 
-    private generateStyles(): string {
-        const prevStyles = this.children.reduce(
+    private traverseStyles(item?: Item) {
+        const prevStyles = (item?.children ?? this.children).reduce(
             (prev: { [id: string]: { [key: string]: Style } }, child) => {
                 if (child instanceof Item) {
                     prev[child.id] = child.styles;
+                    prev = { ...prev, ...this.traverseStyles(child) };
                 }
                 return prev;
             },
@@ -67,6 +68,13 @@ export default class Item {
             }
         );
 
+        return prevStyles;
+    }
+
+    private generateStyles(): string {
+        const prevStyles = this.traverseStyles();
+
+        console.log({ prevStyles });
         const stylesString = Object.entries(prevStyles)
             .map(([id, styles]: [string, Styles]) => {
                 return `#marketmate-studio #${id} {\n${Object.entries(styles)
@@ -88,5 +96,9 @@ export default class Item {
         const styles = this.generateStyles();
 
         return { component, styles };
+    }
+
+    clone() {
+        return new Item(this.id, this.type, this.styles, ...this.children);
     }
 }
