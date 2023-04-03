@@ -1,26 +1,35 @@
 import React, { ReactElement } from "react";
 import Style from "@studio/domain/models/style";
 
-type Styles = { [key: string]: Style };
-export default class Item {
-    id: string;
+export type Styles = { [key: string]: Style };
+export type Props = { styles?: Styles; id?: string; label?: string };
+export default abstract class Item {
+    private static idCounter = 0;
 
-    type: string;
+    id: string = `item-${Item.idCounter}`;
+    protected type: string = "div";
     label?: string;
     styles: Styles = {};
+    children?: any;
 
-    children: Array<Item | string> = [];
 
-    constructor(
-        id: string,
-        type: string,
-        styles: Styles,
-        ...children: Array<Item | string>
-    ) {
-        this.id = id;
-        this.type = type;
-        this.styles = styles;
-        this.children = children;
+    protected constructor(type: string, props: Props) {
+        this.styles = props.styles ?? this.styles;
+        this.styles = {
+            ...this.styles,
+            "min-width": {
+                value: "30px",
+            },
+            "min-height": {
+                value: "30px",
+            },
+            transition: {
+                value: "outline 0.1s ease-in-out",
+            },
+        };
+        this.id = props.id ?? this.id;
+        this.label = props.label;
+        Item.idCounter++;
     }
 
     // private traverse() {}
@@ -45,28 +54,42 @@ export default class Item {
                     onClick(levelsValue);
                 },
             },
-            ...this.children.map((child, i) =>
-                child instanceof Item
-                    ? child.generateDocumentComponent(onClick, i, levelsValue)
-                    : child
-            )
+            ...(Array.isArray(this.children)
+                ? this.children?.map((child, i) =>
+                      child instanceof Item
+                          ? child.generateDocumentComponent(
+                                onClick,
+                                i,
+                                levelsValue
+                            )
+                          : child
+                  )
+                : [this.children])
         );
         return component;
     }
 
-    private traverseStyles(item?: Item) {
-        const prevStyles = (item?.children ?? this.children).reduce(
-            (prev: { [id: string]: { [key: string]: Style } }, child) => {
-                if (child instanceof Item) {
-                    prev[child.id] = child.styles;
-                    prev = { ...prev, ...this.traverseStyles(child) };
-                }
-                return prev;
-            },
-            {
-                [this.id]: this.styles,
-            }
-        );
+    private traverseStyles(item?: Item): { [id: string]: Styles } {
+        if (this.children === undefined && item?.children === undefined)
+            return {};
+        const prevStyles = Array.isArray(item?.children ?? this.children)
+            ? (item?.children ?? this.children).reduce(
+                  (
+                      prev: { [id: string]: { [key: string]: Style } },
+                      child: Item | string
+                  ) => {
+                      console.log(child instanceof Item);
+                      if (child instanceof Item) {
+                          prev[child.id] = child.styles;
+                          prev = { ...prev, ...this.traverseStyles(child) };
+                      }
+                      return prev;
+                  },
+                  {
+                      [this.id]: this.styles,
+                  }
+              )
+            : {};
 
         return prevStyles;
     }
@@ -77,7 +100,9 @@ export default class Item {
         console.log({ prevStyles });
         const stylesString = Object.entries(prevStyles)
             .map(([id, styles]: [string, Styles]) => {
-                return `#marketmate-studio #${id} {\n${Object.entries(styles)
+                return `#marketmate-studio #${id} {\n${Object.entries(
+                    styles ?? {}
+                )
                     .map(([styleName, style]: [string, Style]) => {
                         return `${styleName}: ${style.value};`;
                     })
@@ -98,7 +123,7 @@ export default class Item {
         return { component, styles };
     }
 
-    clone() {
-        return new Item(this.id, this.type, this.styles, ...this.children);
-    }
+    abstract clone(): Item;
+
+    abstract push(item: Item | string): void;
 }

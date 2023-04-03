@@ -3,3 +3,4 @@ export default interface Style {
     mediaQuery?: string;
 }
 
+export type Styles = { [key: string]: Style };
