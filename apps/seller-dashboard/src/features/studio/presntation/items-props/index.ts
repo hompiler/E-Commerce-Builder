@@ -1,16 +1,22 @@
 import LinearContainer from "@studio/domain/models/linear-container";
-import LinearContainerProps from "./linear-container-props";
 import Item from "@studio/domain/models/item";
 import CommonProps from "./linear-container-props";
+import Element from "@studio/domain/models/element";
+import LinearContainerPropsBuilder from "./linear-container-props";
+import ElementPropsBuilder from "@studio/presntation/items-props/element-props";
+import CommonPropsBuilder from "@studio/presntation/items-props/common-props";
 
 const ItemsProps = {
-    [LinearContainer.name]: LinearContainerProps,
-    [Item.name]: CommonProps,
+    [LinearContainer.name]: (item: any) =>
+        new LinearContainerPropsBuilder(item),
+    [Element.name]: (item: any) => new ElementPropsBuilder(item),
+    [Item.name]: (item: Item) => new CommonPropsBuilder(item),
 };
 
 export function getPropsForItem(item: Item) {
-    console.log({ item: item.constructor.name, class: ItemsProps[item.constructor.name] });
-    return ItemsProps[item.constructor.name] ?? CommonProps;
+    return (
+        ItemsProps[item.constructor.name]?.(item) ?? new CommonPropsBuilder(item)
+    );
 }
 
 export default ItemsProps;

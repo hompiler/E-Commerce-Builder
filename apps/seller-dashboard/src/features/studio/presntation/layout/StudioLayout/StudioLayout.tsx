@@ -14,6 +14,7 @@ interface StudioLayoutProps {
     onAddItem: (item: Item) => any;
     onSelect: (levels: number[]) => any;
     selectedItem: Item;
+    onItemChange: (item: Item) => any;
     // allPages: any;
 }
 
@@ -22,6 +23,7 @@ export default function StudioLayout({
     onAddItem,
     onSelect,
     selectedItem,
+    onItemChange,
 }: StudioLayoutProps) {
     const [selectedPane, setSelectedPane] = useState<string>("");
     const panes = useMemo<{
@@ -62,7 +64,11 @@ export default function StudioLayout({
             >
                 {panes[selectedPane]?.component ?? <div>In Dev</div>}
             </aside>
-            <PropsPane className={styles.propsPane} selectedItem={selectedItem}/>
+            <PropsPane
+                className={styles.propsPane}
+                selectedItem={selectedItem}
+                onItemChange={onItemChange}
+            />
             <MainCanvas className={styles.studio} onSelect={onSelect}>
                 {page}
             </MainCanvas>

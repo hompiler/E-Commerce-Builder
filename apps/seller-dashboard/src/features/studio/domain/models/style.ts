@@ -1,5 +1,6 @@
 export default interface Style {
     value: string;
+    readableValue?: string;
     mediaQuery?: string;
 }
 

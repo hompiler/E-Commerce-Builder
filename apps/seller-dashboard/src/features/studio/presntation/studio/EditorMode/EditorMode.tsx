@@ -37,7 +37,7 @@ const testItem = new Container(
         {
             id: "paragraph1",
             styles: {
-                background: { value: "red" },
+                "background-color": { value: "#ff0000" },
                 padding: {
                     value: "16px",
                 },
@@ -62,13 +62,13 @@ const testItem = new Container(
                     value: "block",
                 },
                 color: {
-                    value: "#363636",
+                    value: "#36361f",
                 },
                 "margin-top": {
                     value: "16px",
                 },
-                background: {
-                    value: "black",
+                "background-color": {
+                    value: "#000000",
                 },
             },
         },
@@ -85,8 +85,8 @@ const testItem = new Container(
                     "margin-top": {
                         value: "16px",
                     },
-                    background: {
-                        value: "pink",
+                    "background-color": {
+                        value: "#fe9f0e",
                     },
                 },
             },
@@ -97,13 +97,13 @@ const testItem = new Container(
             {
                 styles: {
                     color: {
-                        value: "red",
+                        value: "#ff0000",
                     },
                     "margin-top": {
                         value: "16px",
                     },
-                    background: {
-                        value: "black",
+                    "background-color": {
+                        value: "#000000",
                     },
                 },
             },
@@ -121,8 +121,8 @@ const testItem = new Container(
                 "margin-top": {
                     value: "16px",
                 },
-                background: {
-                    value: "pink",
+                "background-color": {
+                    value: "#efe321",
                 },
             },
         },
@@ -139,6 +139,7 @@ export default function EditorMode({}) {
     const [selectedLevels, setSelectedLevels] = useState([-1]);
     const previousSelectedLevels = useRef<number[]>();
     const [newItem, setNewItem] = useState<Item>();
+    const [changedItem, setChangedItem] = useState<Item>();
     const selectedItem = useMemo(
         () => getSelectedItems(homeChildren, selectedLevels),
         [selectedLevels]
@@ -198,9 +199,40 @@ export default function EditorMode({}) {
         setNewItem(undefined);
     }, [newItem]);
 
+    useEffect(() => {
+        if (!changedItem) return;
+        const copy = homeChildren.clone();
+        const element = getSelectedItems(copy, selectedLevels);
+        if (element instanceof Item) element.styles = changedItem.styles;
+        // if (selectedLevels[selectedLevels.length - 1] === -1) {
+        //     copy.styles = changedItem.styles;
+        // } else if (
+        //     selectedLevels[selectedLevels.length - 1] === 0 &&
+        //     copy.children[0] instanceof Item
+        // ) {
+        //     copy.children[0].styles = changedItem.styles;
+        // } else if (copy.children[0] instanceof Item) {
+        //     const element = getSelectedItems(copy, selectedLevels.slice(0, -1));
+        //     console.log({
+        //         elementSlice: selectedLevels.slice(0, -1),
+        //         selectedLevels,
+        //     });
+        //     const extractedItem = element.children[selectedLevels[selectedLevels.length - 1]];
+        //     .styles =
+        //         changedItem.styles;
+        // }
+        // const element = getSelectedItems(copy, selectedLevels);
+
+        setHomeChildren(copy);
+        setChangedItem(undefined);
+    }, [changedItem]);
+
     return (
         <>
             <StudioLayout
+                onItemChange={(item) => {
+                    setChangedItem(item);
+                }}
                 selectedItem={selectedItem}
                 page={homeChildren}
                 onSelect={setSelectedLevels}
