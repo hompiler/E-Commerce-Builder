@@ -2,6 +2,7 @@ import Item, { Props } from "@studio/domain/models/item";
 import Container from "@studio/domain/models/container";
 
 export default class LinearContainer extends Container {
+
     constructor(props: Props, ...children: Array<Item | string>) {
         super("div", props, ...children);
         this.styles = {

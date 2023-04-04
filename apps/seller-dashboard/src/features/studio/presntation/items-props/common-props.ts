@@ -33,18 +33,18 @@ const CommonProps = {
         title: "Typography",
         items: [
             {
-                title: "Font Size",
-                inputType: "number",
+                name: "Font Size",
+                type: "number",
                 styleName: "font-size",
             },
             {
-                title: "Color",
-                inputType: "color",
+                name: "Color",
+                type: "color",
                 styleName: "color",
             },
             {
-                title: "Font Weight",
-                inputType: "select",
+                name: "Font Weight",
+                type: "select",
                 options: [
                     {
                         name: "Thin (100)",

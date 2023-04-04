@@ -7,11 +7,13 @@ import MainCanvas from "@studio/presntation/canvas";
 import PagesPane from "../PagesPane";
 import ElementsPane from "../ElementsPane";
 import Item from "@studio/domain/models/item";
+import PropsPane from "@studio/presntation/layout/PropsPane";
 
 interface StudioLayoutProps {
     page: any;
     onAddItem: (item: Item) => any;
     onSelect: (levels: number[]) => any;
+    selectedItem: Item;
     // allPages: any;
 }
 
@@ -19,6 +21,7 @@ export default function StudioLayout({
     page,
     onAddItem,
     onSelect,
+    selectedItem,
 }: StudioLayoutProps) {
     const [selectedPane, setSelectedPane] = useState<string>("");
     const panes = useMemo<{
@@ -59,7 +62,7 @@ export default function StudioLayout({
             >
                 {panes[selectedPane]?.component ?? <div>In Dev</div>}
             </aside>
-            <aside className={styles.propsPane}></aside>
+            <PropsPane className={styles.propsPane} selectedItem={selectedItem}/>
             <MainCanvas className={styles.studio} onSelect={onSelect}>
                 {page}
             </MainCanvas>

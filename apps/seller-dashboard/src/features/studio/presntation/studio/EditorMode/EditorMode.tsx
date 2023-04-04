@@ -139,7 +139,10 @@ export default function EditorMode({}) {
     const [selectedLevels, setSelectedLevels] = useState([-1]);
     const previousSelectedLevels = useRef<number[]>();
     const [newItem, setNewItem] = useState<Item>();
-
+    const selectedItem = useMemo(
+        () => getSelectedItems(homeChildren, selectedLevels),
+        [selectedLevels]
+    );
     useEffect(() => {
         console.log({
             selectedLevels: JSON.stringify(selectedLevels),
@@ -198,6 +201,7 @@ export default function EditorMode({}) {
     return (
         <>
             <StudioLayout
+                selectedItem={selectedItem}
                 page={homeChildren}
                 onSelect={setSelectedLevels}
                 onAddItem={(item) => setNewItem(item)}
