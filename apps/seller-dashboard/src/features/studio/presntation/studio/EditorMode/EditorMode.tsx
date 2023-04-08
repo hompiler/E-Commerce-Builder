@@ -22,117 +22,18 @@ const testItem = new Container(
         },
         id: "home-page",
     },
-    new Element(
-        "h1",
-        {
-            id: "header1",
-            styles: {
-                color: { value: "#e64f30" },
-            },
-        },
-        "What is Lorem Ipsum?"
-    ),
-    new Element(
-        "p",
-        {
-            id: "paragraph1",
-            styles: {
-                "background-color": { value: "#ff0000" },
-                padding: {
-                    value: "16px",
-                },
-            },
-        },
-        `Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged. It was
-                popularised in the 1960s with the release of Letraset sheets
-                containing Lorem Ipsum passages, and more recently with desktop
-                publishing software like Aldus PageMaker including versions of
-                Lorem Ipsum.`
-    ),
-    new Container(
-        "div",
-        {
-            styles: {
-                display: {
-                    value: "block",
-                },
-                color: {
-                    value: "#36361f",
-                },
-                "margin-top": {
-                    value: "16px",
-                },
-                "background-color": {
-                    value: "#000000",
-                },
-            },
-        },
-        new Container(
-            "div",
-            {
-                styles: {
-                    display: {
-                        value: "block",
-                    },
-                    color: {
-                        value: "#363636",
-                    },
-                    "margin-top": {
-                        value: "16px",
-                    },
-                    "background-color": {
-                        value: "#fe9f0e",
-                    },
-                },
-            },
-            "hehe"
-        ),
-        new Container(
-            "div",
-            {
-                styles: {
-                    color: {
-                        value: "#ff0000",
-                    },
-                    "margin-top": {
-                        value: "16px",
-                    },
-                    "background-color": {
-                        value: "#000000",
-                    },
-                },
-            },
-            "dwdwwdw"
-        )
-    ),
-    new Element(
-        "h2",
-        {
-            id: "header2",
-            styles: {
-                color: {
-                    value: "#363636",
-                },
-                "margin-top": {
-                    value: "16px",
-                },
-                "background-color": {
-                    value: "#efe321",
-                },
-            },
-        },
-        "Why Lorem Ipsum?"
-    )
 );
 export default function EditorMode({}) {
     // const testingPages = testing;
-    // const router = useRouter();
-    // const currentPageKey: string = router.query.page?.toString() ?? "home";
+    const router = useRouter();
+    const currentPageKey: string = router.query.page?.toString() ?? "home";
+    // useEffect(() => {
+    //     const currentPage =
+    //         localStorage.getItem(`page-${currentPageKey}`) ?? "";
+    //     const currentPageObj = JSON.parse(currentPage);
+    //     console.log({ currentPageObj });
+    //     setHomeChildren(currentPageObj ?? testItem);
+    // }, []);
     // const currentPage = testingPages[currentPageKey];
 
     const [homeChildren, setHomeChildren] = useState(testItem);
@@ -207,24 +108,6 @@ export default function EditorMode({}) {
         const copy = homeChildren.clone();
         const element = getSelectedItems(copy, selectedLevels);
         if (element instanceof Item) element.styles = changedItem.styles;
-        // if (selectedLevels[selectedLevels.length - 1] === -1) {
-        //     copy.styles = changedItem.styles;
-        // } else if (
-        //     selectedLevels[selectedLevels.length - 1] === 0 &&
-        //     copy.children[0] instanceof Item
-        // ) {
-        //     copy.children[0].styles = changedItem.styles;
-        // } else if (copy.children[0] instanceof Item) {
-        //     const element = getSelectedItems(copy, selectedLevels.slice(0, -1));
-        //     console.log({
-        //         elementSlice: selectedLevels.slice(0, -1),
-        //         selectedLevels,
-        //     });
-        //     const extractedItem = element.children[selectedLevels[selectedLevels.length - 1]];
-        //     .styles =
-        //         changedItem.styles;
-        // }
-        // const element = getSelectedItems(copy, selectedLevels);
 
         setHomeChildren(copy);
         setChangedItem(undefined);
@@ -240,6 +123,7 @@ export default function EditorMode({}) {
                 page={homeChildren}
                 onSelect={setSelectedLevels}
                 onAddItem={(item) => setNewItem(item)}
+                pageName={currentPageKey}
             />
         </>
     );

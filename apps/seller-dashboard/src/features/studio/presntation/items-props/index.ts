@@ -7,6 +7,8 @@ import ElementPropsBuilder from "@studio/presntation/items-props/element-props";
 import CommonPropsBuilder from "@studio/presntation/items-props/common-props";
 import ImagePropsBuilder from "@studio/presntation/items-props/image-props";
 import Image from "@studio/domain/models/image";
+import Heading from "@studio/domain/models/heading";
+import Button from "@studio/domain/models/button";
 
 const ItemsProps = {
     [LinearContainer.name]: (item: any) =>
@@ -14,6 +16,8 @@ const ItemsProps = {
     [Element.name]: (item: any) => new ElementPropsBuilder(item),
     [Item.name]: (item: Item) => new CommonPropsBuilder(item),
     [Image.name]: (item: any) => new ImagePropsBuilder(item),
+    [Heading.name]: (item: any) => new ElementPropsBuilder(item),
+    [Button.name]: (item: any) => new ElementPropsBuilder(item),
 };
 
 export function getPropsForItem(item: Item) {

@@ -4,7 +4,7 @@ import BackIcon from "@icons/back.svg";
 import IconButton from "@/common/components/buttons/IconButton";
 import Button from "@/common/components/buttons/Button";
 
-export default function Header({ className }: any) {
+export default function Header({ className, onPublish }: any) {
     return (
         <header className={[className, styles.header].join(" ")}>
             <div className={styles.title}>
@@ -13,7 +13,7 @@ export default function Header({ className }: any) {
                 <p>www.hompiler.com</p>
             </div>
             <div>
-                <Button>Publish</Button>
+                <Button onClick={onPublish}>Publish</Button>
             </div>
         </header>
     );

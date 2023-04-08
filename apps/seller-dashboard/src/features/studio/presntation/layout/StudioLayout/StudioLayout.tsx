@@ -15,6 +15,7 @@ interface StudioLayoutProps {
     onSelect: (levels: number[]) => any;
     selectedItem: Item;
     onItemChange: (item: Item) => any;
+    pageName: string;
     // allPages: any;
 }
 
@@ -24,6 +25,7 @@ export default function StudioLayout({
     onSelect,
     selectedItem,
     onItemChange,
+    pageName = "home",
 }: StudioLayoutProps) {
     const [selectedPane, setSelectedPane] = useState<string>("");
     const panes = useMemo<{
@@ -50,7 +52,14 @@ export default function StudioLayout({
             <div className={styles.logo}>
                 <Logo />
             </div>
-            <Header className={styles.header} />
+            <Header
+                className={styles.header}
+                onPublish={() => {
+                    console.log("here babe");
+                    const pageString = JSON.stringify(page);
+                    localStorage.setItem(`page-${pageName}`, pageString);
+                }}
+            />
             <Nav
                 className={styles.nav}
                 selectedPane={selectedPane}

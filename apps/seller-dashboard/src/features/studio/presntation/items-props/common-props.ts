@@ -89,11 +89,47 @@ class CommonPropsBuilder {
                         this.onStyleChange("margin", value + "px", value),
                 },
                 {
+                    name: "Margin Top",
+                    type: "number",
+                    value: this.getStylesValue("margin-top"),
+                    onChange: (value: string) =>
+                        this.onStyleChange("margin-top", value + "px", value),
+                },
+                {
+                    name: "Margin Bottom",
+                    type: "number",
+                    value: this.getStylesValue("margin-bottom"),
+                    onChange: (value: string) =>
+                        this.onStyleChange(
+                            "margin-bottom",
+                            value + "px",
+                            value
+                        ),
+                },
+                {
                     name: "Padding",
                     type: "number",
                     value: this.getStylesValue("padding"),
                     onChange: (value: string) =>
                         this.onStyleChange("padding", value + "px", value),
+                },
+                {
+                    name: "Padding Top",
+                    type: "number",
+                    value: this.getStylesValue("padding-top"),
+                    onChange: (value: string) =>
+                        this.onStyleChange("padding-top", value + "px", value),
+                },
+                {
+                    name: "Padding Bottom",
+                    type: "number",
+                    value: this.getStylesValue("padding-bottom"),
+                    onChange: (value: string) =>
+                        this.onStyleChange(
+                            "padding-bottom",
+                            value + "px",
+                            value
+                        ),
                 },
             ],
         },
@@ -113,6 +149,27 @@ class CommonPropsBuilder {
                     value: this.getStylesValue("color", "#000000"),
                     onChange: (value: string) =>
                         this.onStyleChange("color", value),
+                },
+                {
+                    name: "Text Alignment",
+                    type: "select",
+                    options: [
+                        {
+                            name: "Start",
+                            value: "start",
+                        },
+                        {
+                            name: "Center",
+                            value: "center",
+                        },
+                        {
+                            name: "End",
+                            value: "end",
+                        },
+                    ],
+                    value: this.getStylesValue("text-align", "start"),
+                    onChange: (value: string) =>
+                        this.onStyleChange("text-align", value),
                 },
                 {
                     name: "Font Weight",

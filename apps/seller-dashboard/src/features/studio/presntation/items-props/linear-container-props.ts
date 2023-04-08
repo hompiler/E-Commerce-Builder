@@ -26,7 +26,7 @@ export default class LinearContainerPropsBuilder extends CommonPropsBuilder {
                         value: "vertical",
                     },
                 ],
-                value: this.getStylesValue("direction"),
+                value: this.getStylesValue("direction") ,
                 onChange: (value) =>
                     this.onStyleChange(
                         "flex-direction",

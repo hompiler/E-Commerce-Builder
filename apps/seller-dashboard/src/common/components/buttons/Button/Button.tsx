@@ -4,12 +4,10 @@ import styles from "./Button.module.scss";
 import { Button as AntButton, ButtonProps } from "antd";
 import { AntConfigs } from "@/common/assets/configs/AntConfigs";
 
-export default function Button({ children }: ButtonProps & {}) {
+export default function Button({ children, ...rest }: ButtonProps & {}) {
     return (
-        <AntConfigs>
-            <AntButton className={styles.container} type="primary">
-                {children}
-            </AntButton>
-        </AntConfigs>
+        <AntButton className={styles.container} type="primary" {...rest}>
+            {children}
+        </AntButton>
     );
 }
