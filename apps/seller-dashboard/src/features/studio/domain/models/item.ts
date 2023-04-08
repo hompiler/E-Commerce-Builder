@@ -11,22 +11,26 @@ export default abstract class Item {
     label?: string;
     styles: Styles = {};
     children?: any;
-
+    protected componentProps: { [key: string]: any } = {};
 
     protected constructor(type: string, props: Props) {
         this.styles = props.styles ?? this.styles;
         this.styles = {
             ...this.styles,
             "min-width": {
-                value: "30px",
+                value: "10px",
             },
             "min-height": {
-                value: "30px",
+                value: "10px",
             },
+            // overflow: {
+            //     // value: "auto",
+            // },
             transition: {
                 value: "outline 0.1s ease-in-out",
             },
         };
+        this.type = type;
         this.id = props.id ?? this.id;
         this.label = props.label;
         Item.idCounter++;
@@ -34,8 +38,8 @@ export default abstract class Item {
 
     // private traverse() {}
 
-    private generateDocumentComponent(
-        onClick: any,
+    protected generateDocumentComponent(
+        onClick: any = () => {},
         index: number = 0,
         levels: number[] = []
     ): ReactElement {
@@ -49,6 +53,7 @@ export default abstract class Item {
             this.type,
             {
                 id: this.id,
+                ...this.componentProps,
                 onClick: (e) => {
                     e.stopPropagation();
                     onClick(levelsValue);

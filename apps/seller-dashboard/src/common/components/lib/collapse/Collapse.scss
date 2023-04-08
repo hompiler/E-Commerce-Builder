@@ -1,0 +1,37 @@
+@import "@styles/theme/colors";
+
+.mm-collapse {
+  border: none;
+  border-radius: 0 !important;
+  background: $color-background;
+}
+
+.mm-collapse .ant-collapse-content {
+  border: none;
+  border-radius: 0 !important;
+  background: $color-background;
+
+}
+
+.mm-collapse .ant-collapse-header {
+  background: $color-surface;
+  font-weight: 500;
+  font-size: 14px !important;
+}
+
+.mm-collapse, .mm-collapse .ant-collapse-header, .mm-collapse .ant-collapse-item-active {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.mm-collapse .ant-collapse-item {
+  border-bottom: 1px solid #383838;
+}
+
+.ant-collapse-item:last-child {
+    border-bottom: none;
+}
+
+.mm-collapse-icon {
+  transition: transform 200ms ease-in;
+}

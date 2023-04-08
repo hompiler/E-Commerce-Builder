@@ -17,7 +17,7 @@ $color-background-canvas: #171717;
   display: grid;
   height: 100vh;
   overflow: hidden;
-  background: $color-background;
+  background: url("../../../../../../public/images/editor-background.svg");
   color: $color-on-background;
   grid-template-areas:
     "logo header header header"
@@ -25,6 +25,10 @@ $color-background-canvas: #171717;
   grid-template-columns:
             $dimen-w-nav $dimen-w-edit-aside $dimen-w-studio $dimen-w-props-aside;
   grid-template-rows: $dimen-h-header $dimen-h-studio;
+}
+
+.layout > * {
+  background: $color-background;
 }
 
 .logo {
@@ -61,7 +65,6 @@ $color-background-canvas: #171717;
     overflow-x: hidden;
     width: 259px;
     min-width: 259px;
-    padding: 16px;
   }
 }
 
@@ -80,4 +83,27 @@ $color-background-canvas: #171717;
   //grid-column: 2/4;
   resize: horizontal;
   background: $color-background-canvas;
+}
+
+
+.paneContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  header {
+    height: 56px;
+    padding-inline: 16px;
+    padding-block: 20px;
+    border-bottom: 1px solid $color-borders;
+
+    h3 {
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    @include centered(flex-start);
+
+
+  }
 }

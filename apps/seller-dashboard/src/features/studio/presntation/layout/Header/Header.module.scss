@@ -1,7 +1,9 @@
 @import "@styles/lib/positioning.scss";
 @import "@styles/theme/colors.scss";
+@import "@styles/lib/behaviors";
 
 .header {
+  @include selectable;
   @include row-centered-vertical;
   justify-content: space-between;
   box-sizing: border-box;
@@ -17,11 +19,14 @@
   grid-template-columns: auto 1fr;
   border-inline-end: 1px solid $color-borders;
 
+
   button {
     grid-area: back;
   }
 
   h1 {
+    @include selectable;
+
     margin-top: 3.5px;
     display: inline-block;
     grid-area: title;

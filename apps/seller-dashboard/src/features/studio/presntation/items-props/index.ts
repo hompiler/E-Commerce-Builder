@@ -5,17 +5,21 @@ import Element from "@studio/domain/models/element";
 import LinearContainerPropsBuilder from "./linear-container-props";
 import ElementPropsBuilder from "@studio/presntation/items-props/element-props";
 import CommonPropsBuilder from "@studio/presntation/items-props/common-props";
+import ImagePropsBuilder from "@studio/presntation/items-props/image-props";
+import Image from "@studio/domain/models/image";
 
 const ItemsProps = {
     [LinearContainer.name]: (item: any) =>
         new LinearContainerPropsBuilder(item),
     [Element.name]: (item: any) => new ElementPropsBuilder(item),
     [Item.name]: (item: Item) => new CommonPropsBuilder(item),
+    [Image.name]: (item: any) => new ImagePropsBuilder(item),
 };
 
 export function getPropsForItem(item: Item) {
     return (
-        ItemsProps[item.constructor.name]?.(item) ?? new CommonPropsBuilder(item)
+        ItemsProps[item.constructor.name]?.(item) ??
+        new CommonPropsBuilder(item)
     );
 }
 

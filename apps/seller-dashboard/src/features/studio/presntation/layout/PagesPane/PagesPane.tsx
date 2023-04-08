@@ -8,16 +8,14 @@ export default function PagesPane({}) {
     const router = useRouter();
     return (
         <div className={styles.container}>
-            <section></section>
             <section>
-                <h2>Pages</h2>
-                <div>
+                <ul>
                     {Object.entries(allPages).map(([key, page]) => (
-                        <div onClick={() => router.push(`?page=${key}`)}>
+                        <li onClick={() => router.push(`?page=${key}`)}>
                             {page.head.title}
-                        </div>
+                        </li>
                     ))}
-                </div>
+                </ul>
             </section>
         </div>
     );

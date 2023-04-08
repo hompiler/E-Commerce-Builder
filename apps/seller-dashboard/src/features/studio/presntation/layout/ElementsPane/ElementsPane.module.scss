@@ -1,2 +1,23 @@
-.container {
+@import "@styles/lib/positioning.scss";
+@import "@styles/theme/colors";
+
+.container ul {
+  @include no-bullets;
+  margin-inline: -16px;
 }
+
+.container li {
+  padding-block: 16px 24px;
+  border-bottom: 1px solid $color-borders;
+  padding-inline: 16px;
+  @include column-centered-horizontal;
+  color: #777777;
+  font-weight: 500;
+  font-size: 14px;
+  gap: 16px;
+}
+
+.container ul li:last-child {
+  border-bottom: none;
+}
+

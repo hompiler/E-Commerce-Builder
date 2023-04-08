@@ -35,7 +35,7 @@ export default function StudioLayout({
                 component: <ElementsPane onAddItem={onAddItem} />,
             },
             global: {
-                title: "Global Layout",
+                title: "Layers",
                 component: <div></div>,
             },
             pages: {
@@ -62,7 +62,16 @@ export default function StudioLayout({
                     selectedPane ? styles.editOpen : "",
                 ].join(" ")}
             >
-                {panes[selectedPane]?.component ?? <div>In Dev</div>}
+                {panes[selectedPane]?.component ? (
+                    <div className={styles.paneContainer}>
+                        <header>
+                            <h3>{panes[selectedPane].title}</h3>
+                        </header>
+                        <div>{panes[selectedPane].component}</div>
+                    </div>
+                ) : (
+                    <div></div>
+                )}
             </aside>
             <PropsPane
                 className={styles.propsPane}

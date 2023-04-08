@@ -1,10 +1,8 @@
 "use client";
 import React from "react";
 import styles from "./Nav.module.scss";
-import PlusIcon from "@icons/plus.svg";
-import PagesIcon from "@icons/page.svg";
-import LayersIcon from "@icons/layers.svg";
 import { IconButtonGroup } from "@/common/components/buttons/IconButton/IconButtonGroup";
+import { SettingsIcon, LayersIcon, PageIcon, PlusIcon } from "@icons/index";
 
 export default function Nav({ className, selectedPane, setSelectedPane }: any) {
     return (
@@ -26,12 +24,12 @@ export default function Nav({ className, selectedPane, setSelectedPane }: any) {
                     },
                     {
                         key: "pages",
-                        icon: <PagesIcon />,
+                        icon: <PageIcon />,
                         title: "Pages",
                     },
                     {
                         key: "settings",
-                        icon: <PagesIcon />,
+                        icon: <SettingsIcon />,
                         title: "Settings",
                     },
                 ]}

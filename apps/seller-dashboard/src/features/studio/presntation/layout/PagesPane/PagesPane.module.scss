@@ -1,2 +1,9 @@
-.container {
+.container li {
+  padding: 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #222222;
+
+  &:hover {
+    background: #333333;
+  }
 }
