@@ -174,7 +174,10 @@ export default function EditorMode({}) {
             previousElement.styles = {
                 ...previousElement.styles,
                 outline: {
-                    value: "none",
+                    value:
+                        previousElement instanceof Container
+                            ? "1px solid #101010"
+                            : "none",
                 },
             };
         }

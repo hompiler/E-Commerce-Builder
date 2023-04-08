@@ -41,6 +41,13 @@ function PropInput({ item, onChange }: any) {
                     }}
                 />
             );
+        case "textarea":
+            return (
+                <Input.TextArea
+                    value={item.value}
+                    onChange={(e) => onChange(item, e.target.value)}
+                />
+            );
         default:
             return (
                 <Input

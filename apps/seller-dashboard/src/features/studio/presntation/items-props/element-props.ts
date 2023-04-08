@@ -6,7 +6,7 @@ export default class ElementPropsBuilder extends CommonPropsBuilder {
         super(element);
         this.props.general.items.push({
             name: "Value",
-            type: "text",
+            type: "textarea",
             value: this.item.children,
             onChange: (value: string) => {
                 this.item.children = value;

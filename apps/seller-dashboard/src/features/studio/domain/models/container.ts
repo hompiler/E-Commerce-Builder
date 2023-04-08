@@ -6,7 +6,13 @@ export default class Container extends Item {
     children: Array<Item | string>;
 
     constructor(type: string, props: Props, ...children: Array<Item | string>) {
-        super(type, props);
+        const styles = {
+            ...props.styles,
+            outline: {
+                value: "1px solid #101010",
+            },
+        };
+        super(type, { ...props, styles });
         this.children = children;
     }
 

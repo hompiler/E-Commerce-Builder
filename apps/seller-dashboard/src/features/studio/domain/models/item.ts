@@ -18,10 +18,13 @@ export default abstract class Item {
         this.styles = {
             ...this.styles,
             "min-width": {
-                value: "10px",
+                value: "20px",
             },
             "min-height": {
-                value: "10px",
+                value: "20px",
+            },
+            "border-radius": {
+                value: "1px",
             },
             // overflow: {
             //     // value: "auto",
