@@ -1,0 +1,64 @@
+@import "../_common/form-item";
+
+.uploaderWrapper {
+  @apply min-h-[134px] relative primary-container rounded-sm cursor-pointer select-none    ;
+  border: 1px dashed var(--color-primary);
+
+
+  .uploader {
+    @apply primary-container absolute inset-0 gap-2 rounded-none column-center justify-center m-0   font-normal;
+    transition: all ease-in-out 0.2s;
+    box-shadow: none;
+  }
+
+  .removeButton {
+    @apply absolute top-[18px] right-[17px] z-[2] fill-white stroke-white;
+  }
+
+  strong {
+    @apply text-primary underline;
+  }
+
+  p {
+    @apply w-full text-center;
+  }
+
+  .placeholder {
+    @include form-placeholder;
+    @apply text-primary;
+  }
+
+  .files {
+    @apply line-clamp-2;
+    span {
+      @apply line-clamp-2 inline;
+    }
+
+    strong {
+      @apply text-primary underline font-normal;
+    }
+  }
+
+}
+
+.uploaderWrapper[data-exist=true] {
+  @apply bg-background bordered;
+
+  .uploader {
+    @apply bg-gray-100 inset-6  text-gray-700 p-4 rounded-sm;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.016);
+
+    strong {
+      @apply text-primary underline font-normal;
+    }
+
+  }
+
+  &:hover {
+    strong {
+      @apply text-blue-700 ;
+    }
+  }
+
+}
+

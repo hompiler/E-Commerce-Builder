@@ -4,7 +4,7 @@ import Item from "@studio/domain/models/item";
 import Element from "@studio/domain/models/element";
 import LinearContainer from "@studio/domain/models/linear-container";
 import GridContainer from "@studio/domain/models/grid-container";
-import Collapse from "@/common/components/lib/collapse";
+import Collapse from "src/lib/components/collapse";
 import Button from "@studio/domain/models/button";
 import Container from "@studio/domain/models/container";
 import Heading, { HeadingLevel } from "@studio/domain/models/heading";

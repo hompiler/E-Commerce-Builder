@@ -1,0 +1,47 @@
+@use "theme/index" as *;
+@use "lib/index" as *;
+@import "./theme/colors/colors-native";
+@import "@components/collapse/Collapse";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  background: var(--color-background);
+  color: var(--color-on-background);
+
+  --font-mono: 'Montserrat', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+  'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+  'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  font-family: var(--font-mono);
+}
+
+/* width */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/* Track */
+*::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+/* Handle */
+*::-webkit-scrollbar-thumb {
+  background: #424242;
+
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: var(--color-primary);
+}

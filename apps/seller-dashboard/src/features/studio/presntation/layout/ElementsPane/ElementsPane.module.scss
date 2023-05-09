@@ -1,5 +1,4 @@
 @import "@styles/lib/positioning.scss";
-@import "@styles/theme/colors";
 
 .container ul {
   @include no-bullets;
@@ -8,7 +7,7 @@
 
 .container li {
   padding-block: 16px 24px;
-  border-bottom: 1px solid $color-borders;
+  border-bottom: 1px solid var(--color-borders);
   padding-inline: 16px;
   @include column-centered-horizontal;
   color: #777777;

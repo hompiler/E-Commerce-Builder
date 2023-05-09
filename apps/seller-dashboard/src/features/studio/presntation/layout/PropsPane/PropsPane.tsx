@@ -3,7 +3,7 @@ import styles from "./PropsPane.module.scss";
 import ItemsProps, { getPropsForItem } from "@studio/presntation/items-props";
 import * as events from "events";
 import Item from "@studio/domain/models/item";
-import Collapse from "@/common/components/lib/collapse";
+import Collapse from "src/lib/components/collapse";
 import { Form, Input, Select } from "antd";
 
 function PropInput({ item, onChange }: any) {

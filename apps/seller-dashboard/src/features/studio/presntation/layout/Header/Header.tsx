@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Header.module.scss";
 import BackIcon from "@icons/back.svg";
-import IconButton from "@/common/components/buttons/IconButton";
-import Button from "@/common/components/buttons/Button";
+import IconButton from "@lib/components/buttons/IconButton";
+import Button from "@lib/components/buttons/Button";
 
 export default function Header({ className, onPublish }: any) {
     return (

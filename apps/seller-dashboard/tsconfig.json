@@ -25,15 +25,54 @@
     ],
     "baseUrl": ".",
     "paths": {
+      "~/*": [
+        "./*"
+      ],
       "@/*": [
         "./src/*"
       ],
+      // @lib: ------------------------------------------------------
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      // @components: -----------------------------------------------
+      "@components/*": [
+        "./src/lib/components/*"
+      ],
+      "@layout/*": [
+        "./src/lib/components/layout/*"
+      ],
+      // @assets: ---------------------------------------------------
+      "@assets/*": [
+        "./src/lib/assets/*"
+      ],
+      "@icons": [
+        "./src/lib/assets/icons"
+      ],
       "@icons/*": [
-        "./src/common/assets/icons/*"
+        "./src/lib/assets/icons/*"
       ],
       "@styles/*": [
-        "./src/common/assets/styles/*"
+        "./src/lib/assets/styles/*"
       ],
+      // @utils: ----------------------------------------------------
+      "@utils/*": [
+        "./src/lib/utils/*"
+      ],
+      "@api-client": [
+        "./src/lib/utils/api-client"
+      ],
+      "@api-client/*": [
+        "./src/lib/utils/api-client/*"
+      ],
+      // @types: ----------------------------------------------------
+      "@types": [
+        "./src/lib/types"
+      ],
+      "@types/*": [
+        "./src/lib/types/*"
+      ],
+      // @features: -------------------------------------------------
       "@features/*": [
         "./src/features/*"
       ],
@@ -42,21 +81,6 @@
       ],
       "@studio/*": [
         "./src/features/studio/*"
-      ],
-      "@api-client": [
-        "./src/lib/api-client"
-      ],
-      "@api-client/*": [
-        "./src/lib/api-client/*"
-      ],
-      "@lib/*": [
-        "./src/lib/*"
-      ],
-      "@types": [
-        "./src/types"
-      ],
-      "@types/*": [
-        "./src/types/*"
       ]
     }
   },

@@ -1,0 +1,28 @@
+@import "../_common/form-item";
+
+.form-container {
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  input[type="file"] {
+    display: none;
+  }
+
+}
+
+.lib-form-item .ant-form-item-label {
+  @include form-label-wrapper;
+
+  label {
+    @include form-label;
+  }
+
+
+}
+
+.lib-form-item.ant-form-item {
+  margin: 0;
+}
+

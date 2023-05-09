@@ -1,0 +1,40 @@
+@use "colors" as *;
+
+$isDark: false;
+
+
+
+:export {
+  isDark: false;
+  primary: $color-primary-light;
+  onPrimary: $color-on-primary-light;
+  background: $color-background-light;
+  onBackground: $color-on-background-light;
+  onBackgroundUnFocused: $color-on-background-unfocused-light;
+  surfaceVariant: $color-surface-variant-light;
+  onSurfaceVariant: $color-on-surface-variant-light;
+  surface: $color-surface-light;
+  onSurface: $color-on-surface-light;
+  borders: $color-borders-light;
+  secondary: $color-secondary-light;
+  onSecondary: $color-on-secondary-light;
+}
+
+//@media (prefers-color-scheme: light) {
+//  $isDark: true ;
+//  :export {
+//    isDark: true;
+//    primary: $color-primary-dark;
+//    onPrimary: $color-on-primary-dark;
+//    background: $color-background-dark;
+//    onBackground: $color-on-background-dark;
+//    onBackgroundUnFocused: $color-on-background-unfocused-dark;
+//    surfaceVariant: $color-surface-variant-dark;
+//    onSurfaceVariant: $color-on-surface-variant-dark;
+//    surface: $color-surface-dark;
+//    onSurface: $color-on-surface-dark;
+//    borders: $color-borders-dark;
+//    secondary: $color-secondary-dark;
+//    onSecondary: $color-on-secondary-dark;
+//  }
+//}

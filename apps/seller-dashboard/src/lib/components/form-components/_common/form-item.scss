@@ -1,0 +1,32 @@
+$dimension-h-item: 33px;
+
+@mixin form-item-wrapper {
+  border-radius: var(--rounded-sm);
+  border: 1px solid var(--color-border);
+}
+@mixin form-item {
+  padding-inline: 12px;
+  font-size: 16px !important;
+  color: var(--color-gray-900);
+  font-weight: 500;
+}
+
+@mixin form-label-wrapper {
+  padding: 0 !important;
+  margin-bottom: 4px;
+  line-height: 20px;
+
+}
+
+@mixin form-label {
+
+  flex-direction: row-reverse;
+  gap: 2px;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+
+@mixin form-placeholder {
+  font-weight: 500;
+  color: var(--color-gray-500);
+}

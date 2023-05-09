@@ -1,0 +1,38 @@
+@use "colors" as *;
+
+:root {
+  --color-primary: #{$color-primary-light};
+  --color-on-primary: #{$color-on-primary-light};
+  --color-primary-container: #{$color-primary-container-light};
+  --color-on-primary-container: #{$color-on-primary-container-light};
+  --color-background: #{$color-background-light};
+  --color-on-background: #{$color-on-background-light};
+  --color-on-background-unfocused: #{$color-on-background-unfocused-light};
+  --color-surface-variant: #{$color-surface-variant-light};
+  --color-on-surface-variant: #{$color-on-surface-variant-light};
+  --color-surface: #{$color-surface-light};
+  --color-on-surface: #{$color-on-surface-light};
+  --color-border: #{$color-borders-light};
+  --color-secondary: #{$color-secondary-light};
+  --color-on-secondary: #{$color-on-secondary-light};
+}
+
+
+//@media (prefers-color-scheme: dark) {
+//  :root {
+//    --color-primary: #{$color-primary-dark};
+//    --color-on-primary: #{$color-on-primary-dark};
+//    --color-primary-container: #{$color-primary-container-dark};
+//    --color-on-primary-container: #{$color-on-primary-container-dark};
+//    --color-background: #{$color-background-dark};
+//    --color-on-background: #{$color-on-background-dark};
+//    --color-on-background-unfocused: #{$color-on-background-unfocused-dark};
+//    --color-surface-variant: #{$color-surface-variant-dark};
+//    --color-on-surface-variant: #{$color-on-surface-variant-dark};
+//    --color-surface: #{$color-surface-dark};
+//    --color-on-surface: #{$color-on-surface-dark};
+//    --color-border: #{$color-borders-dark};
+//    --color-secondary: #{$color-secondary-dark};
+//    --color-on-secondary: #{$color-on-secondary-dark};
+//  }
+//}

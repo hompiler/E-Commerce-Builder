@@ -1,5 +1,4 @@
 @import "@styles/lib/positioning.scss";
-@import "@styles/theme/colors.scss";
 @import "@styles/lib/behaviors";
 
 .header {
@@ -17,7 +16,7 @@
   grid-template-areas: "back title" "back sub";
   gap: 2px 32px;
   grid-template-columns: auto 1fr;
-  border-inline-end: 1px solid $color-borders;
+  border-inline-end: 1px solid var(--color-borders);
 
 
   button {
