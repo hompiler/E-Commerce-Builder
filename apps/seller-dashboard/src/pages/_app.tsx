@@ -1,13 +1,14 @@
 import { AppProps } from "next/app";
 import "@lib/assets/styles/globals.scss";
 import * as process from "process";
-import { Montserrat } from "@next/font/google";
+import { Poppins } from "next/font/google";
 import Head from "next/head";
 import { AntConfigs } from "@assets/configs/AntConfigs";
 
-export const montserrat = Montserrat({
+export const poppins = Poppins({
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
     subsets: ["latin"],
-    variable: "--font-montserrat",
+    variable: "--font-poppins",
 });
 
 function MarketMate({ Component, pageProps }: AppProps) {
@@ -17,7 +18,7 @@ function MarketMate({ Component, pageProps }: AppProps) {
             <Head>
                 <title>Market Mate</title>
             </Head>
-            <div className={montserrat.className}>
+            <div className={poppins.className}>
                 <AntConfigs>
                     <Component {...pageProps} />
                 </AntConfigs>

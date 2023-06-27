@@ -1,5 +1,10 @@
 @use "theme/index" as *;
 @use "lib/index" as *;
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import "./theme/colors/colors-native";
 @import "@components/collapse/Collapse";
 
@@ -12,11 +17,6 @@
 html {
   background: var(--color-background);
   color: var(--color-on-background);
-
-  --font-mono: 'Montserrat', ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-  'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-  'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
-  font-family: var(--font-mono);
 }
 
 /* width */

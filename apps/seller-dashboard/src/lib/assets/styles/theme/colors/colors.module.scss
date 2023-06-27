@@ -1,40 +1,89 @@
 @use "colors" as *;
 
-$isDark: false;
-
-
-
 :export {
-  isDark: false;
-  primary: $color-primary-light;
-  onPrimary: $color-on-primary-light;
-  background: $color-background-light;
-  onBackground: $color-on-background-light;
-  onBackgroundUnFocused: $color-on-background-unfocused-light;
-  surfaceVariant: $color-surface-variant-light;
-  onSurfaceVariant: $color-on-surface-variant-light;
-  surface: $color-surface-light;
-  onSurface: $color-on-surface-light;
-  borders: $color-borders-light;
-  secondary: $color-secondary-light;
-  onSecondary: $color-on-secondary-light;
+  primary100: $color-primary-100;
+  primary200: $color-primary-200;
+  primary300: $color-primary-300;
+  primary400: $color-primary-400;
+  primary500: $color-primary-500;
+  primary600: $color-primary-600;
+  primary700: $color-primary-700;
+  primary800: $color-primary-800;
+  primary900: $color-primary-900;
+  primary950: $color-primary-950;
+  gray100: $color-gray-100;
+  gray200: $color-gray-200;
+  gray300: $color-gray-300;
+  gray400: $color-gray-400;
+  gray500: $color-gray-500;
+  gray600: $color-gray-600;
+  gray700: $color-gray-700;
+  gray800: $color-gray-800;
+  gray900: $color-gray-900;
+  gray950: $color-gray-950;
+  green100: $color-green-100;
+  green200: $color-green-200;
+  green300: $color-green-300;
+  green400: $color-green-400;
+  green500: $color-green-500;
+  green600: $color-green-600;
+  green700: $color-green-700;
+  green800: $color-green-800;
+  green900: $color-green-900;
+  green950: $color-green-950;
+  yellow100: $color-yellow-100;
+  yellow200: $color-yellow-200;
+  yellow300: $color-yellow-300;
+  yellow400: $color-yellow-400;
+  yellow500: $color-yellow-500;
+  yellow600: $color-yellow-600;
+  yellow700: $color-yellow-700;
+  yellow800: $color-yellow-800;
+  yellow900: $color-yellow-900;
+  yellow950: $color-yellow-950;
+  red100: $color-red-100;
+  red200: $color-red-200;
+  red300: $color-red-300;
+  red400: $color-red-400;
+  red500: $color-red-500;
+  red600: $color-red-600;
+  red700: $color-red-700;
+  red800: $color-red-800;
+  red900: $color-red-900;
+  red950: $color-red-950;
+
+  primary: $color-primary;
+  onPrimary: $color-on-primary;
+  primaryContainer: $color-primary-container;
+  onPrimaryContainer: $color-on-primary-container;
+
+  background: $color-background;
+  onBackground: $color-on-background;
+  onBackgroundUnFocused: $color-on-background-unfocused;
+  surfaceVariant: $color-surface-variant;
+  onSurfaceVariant: $color-on-surface-variant;
+  surface: $color-surface;
+  onSurface: $color-on-surface;
+  borders: $color-borders;
+  secondary: $color-secondary;
+  onSecondary: $color-on-secondary;
+
+  green: $color-green;
+  successPrimary: $color-success-primary;
+  successOnPrimary: $color-success-on-primary;
+  sucessPrimaryContainer: $color-success-primary-container;
+  successOnPrimaryContainer: $color-success-on-primary-container;
+
+  yellow: $color-yellow;
+  warningPrimary: $color-warning-primary;
+  warningOnPrimary: $color-warning-on-primary;
+  warningPrimaryContainer: $color-warning-primary-container;
+  warningOnPrimaryContainer: $color-warning-on-primary-container;
+
+  red: $color-red;
+  errorPrimary: $color-error-primary;
+  errorOnPrimary: $color-error-on-primary;
+  errorPrimaryContainer: $color-error-primary-container;
+  errorOnPrimaryContainer: $color-error-on-primary-container;
 }
 
-//@media (prefers-color-scheme: light) {
-//  $isDark: true ;
-//  :export {
-//    isDark: true;
-//    primary: $color-primary-dark;
-//    onPrimary: $color-on-primary-dark;
-//    background: $color-background-dark;
-//    onBackground: $color-on-background-dark;
-//    onBackgroundUnFocused: $color-on-background-unfocused-dark;
-//    surfaceVariant: $color-surface-variant-dark;
-//    onSurfaceVariant: $color-on-surface-variant-dark;
-//    surface: $color-surface-dark;
-//    onSurface: $color-on-surface-dark;
-//    borders: $color-borders-dark;
-//    secondary: $color-secondary-dark;
-//    onSecondary: $color-on-secondary-dark;
-//  }
-//}

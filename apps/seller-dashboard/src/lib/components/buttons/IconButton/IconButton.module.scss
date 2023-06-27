@@ -1,12 +1,11 @@
 @import "../../../assets/styles/lib/positioning";
-@import "../../../assets/styles/theme/colors";
 
 .iconButton {
   @include centered;
   width: 40px !important;
   height: 40px;
-  background-color: $color-secondary;
-  fill: $color-on-secondary;
+  background-color: var(--color-secondary);
+  fill: var(--color-on-secondary);
   border: none;
   box-shadow: none;
   outline: transparent;
@@ -17,31 +16,31 @@
   }
 
   &.selection {
-    fill: $color-on-background-unfocused;
+    fill: var(--color-on-background-unfocused);
     background: transparent;
   }
 
   &:hover {
-    background-color: $color-secondary;
+    background-color: var(--color-secondary);
   }
 
   &:hover svg, {
-    fill: $color-primary;
+    fill: var(--color-primary);
     scale: 1.1;
   }
 
   &.selection:hover svg {
-    fill: $color-on-background;
+    fill: var(--color-on-background);
   }
 
   &.selected {
-    background-color: $color-secondary;
-    fill: $color-primary;
+    background-color: var(--color-secondary);
+    fill: var(--color-primary);
   }
 
   &.selected:hover svg {
     scale: 1;
-    fill: $color-primary;
+    fill: var(--color-primary);
   }
 }
 
