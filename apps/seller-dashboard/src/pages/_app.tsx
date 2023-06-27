@@ -4,6 +4,7 @@ import * as process from "process";
 import { Poppins } from "next/font/google";
 import Head from "next/head";
 import { AntConfigs } from "@assets/configs/AntConfigs";
+import Layout from "@layout/index";
 
 export const poppins = Poppins({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -18,9 +19,16 @@ function MarketMate({ Component, pageProps }: AppProps) {
             <Head>
                 <title>Market Mate</title>
             </Head>
-            <div className={poppins.className}>
+            <style jsx global>{`
+                html {
+                    font-family: ${poppins.style.fontFamily};
+                }
+            `}</style>
+            <div >
                 <AntConfigs>
-                    <Component {...pageProps} />
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
                 </AntConfigs>
             </div>
         </>

@@ -57,39 +57,39 @@
   --color-red-900: #{$color-red-900};
   --color-red-950: #{$color-red-950};
 
-  --color-primary: $color-primary;
-  --color-on-primary: $color-on-primary;
-  --color-primary-container: $color-primary-container;
-  --color-on-primary-container: $color-on-primary-container;
+  --color-primary: #{$color-primary};
+  --color-on-primary: #{$color-on-primary};
+  --color-primary-container: #{$color-primary-container};
+  --color-on-primary-container: #{$color-on-primary-container};
 
-  --color-background: $color-background;
-  --color-on-background: $color-on-background;
-  --color-on-background-unfocused: $color-on-background-unfocused;
-  --color-surface-variant: $color-surface-variant;
-  --color-on-surface-variant: $color-on-surface-variant;
-  --color-surface: $color-surface;
-  --color-on-surface: $color-on-surface;
-  --color-borders: $color-borders;
-  --color-secondary: $color-secondary;
-  --color-on-secondary: $color-on-secondary;
+  --color-background: #{$color-background};
+  --color-on-background: #{$color-on-background};
+  --color-on-background-unfocused: #{$color-on-background-unfocused};
+  --color-surface-variant: #{$color-surface-variant};
+  --color-on-surface-variant: #{$color-on-surface-variant};
+  --color-surface: #{$color-surface};
+  --color-on-surface: #{$color-on-surface};
+  --color-border: #{$color-borders};
+  --color-secondary: #{$color-secondary};
+  --color-on-secondary: #{$color-on-secondary};
 
-  --color-green: $color-green;
-  --color-success-primary: $color-success-primary;
-  --color-success-on-primary: $color-success-on-primary;
-  --color-success-primary-container: $color-success-primary-container;
-  --color-success-on-primary-container: $color-success-on-primary-container;
+  --color-green: #{$color-green};
+  --color-success-primary: #{$color-success-primary};
+  --color-success-on-primary: #{$color-success-on-primary};
+  --color-success-primary-container: #{$color-success-primary-container};
+  --color-success-on-primary-container: #{$color-success-on-primary-container};
 
-  --color-yellow: $color-yellow;
-  --color-warning-primary: $color-warning-primary;
-  --color-warning-on-primary: $color-warning-on-primary;
-  --color-warning-primary-container: $color-warning-primary-container;
-  --color-warning-on-primary-container: $color-warning-on-primary-container;
+  --color-yellow: #{$color-yellow};
+  --color-warning-primary: #{$color-warning-primary};
+  --color-warning-on-primary: #{$color-warning-on-primary};
+  --color-warning-primary-container: #{$color-warning-primary-container};
+  --color-warning-on-primary-container: #{$color-warning-on-primary-container};
 
-  --color-red: $color-red;
-  --color-error-primary: $color-error-primary;
-  --color-error-on-primary: $color-error-on-primary;
-  --color-error-primary-container: $color-error-primary-container;
-  --color-error-on-primary-container: $color-error-on-primary-container;
+  --color-red: #{$color-red};
+  --color-error-primary: #{$color-error-primary};
+  --color-error-on-primary: #{$color-error-on-primary};
+  --color-error-primary-container: #{$color-error-primary-container};
+  --color-error-on-primary-container: #{$color-error-on-primary-container};
 
 }
 

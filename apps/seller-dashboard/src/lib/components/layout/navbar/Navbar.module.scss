@@ -1,0 +1,21 @@
+
+.nav {
+  --dimension-nav-w: 256px;
+  --dimension-nav-collapsed-w: 68px;
+  --transition-time-nav: 0.2s;
+  --transition-easing-nav: ease-in;
+  @apply bg-background select-none bordered-end elevated  pb-6;
+  transition: width var(--transition-time-nav) var(--transition-easing-nav),
+  padding var(--transition-time-nav) var(--transition-easing-nav);
+
+}
+
+.navFull {
+  @apply px-6;
+  width: var(--dimension-nav-w);
+}
+
+.navCollapsed {
+  @apply px-4;
+  width: var(--dimension-nav-collapsed-w);
+}

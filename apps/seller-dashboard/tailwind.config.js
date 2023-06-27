@@ -1,5 +1,8 @@
 /** @type {import("tailwindcss").Config} */
 const plugin = require("tailwindcss/plugin");
+const {
+    default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 
 const baseTypographyPlugins = plugin(function ({
     addBase,
@@ -158,8 +161,8 @@ const components = plugin(function ({ addComponents, theme }) {
     });
 });
 
-const iconsPlugin = plugin(function ({ matchVariant, theme }) {
-    matchVariant(
+const iconsPlugin = plugin(function ({ matchVariant, matchUtilities, theme }) {
+    matchUtilities(
         "size-",
         (value) => {
             return {
@@ -169,16 +172,17 @@ const iconsPlugin = plugin(function ({ matchVariant, theme }) {
         },
         { values: { ...theme("spacing") } }
     );
-    matchVariant(
-        "icon-col-",
-        (value) => {
-            return {
-                color: value,
+    matchUtilities(
+        {
+            "icon-col": (value) => ({
                 fill: value,
                 stroke: value,
-            };
+            }),
         },
-        { values: { ...theme("colors") } }
+        {
+            values: flattenColorPalette(theme("colors")),
+            type: "color",
+        }
     );
 });
 
@@ -286,6 +290,10 @@ module.exports = {
     theme: {
         extend: {
             colors: require("./config/tailwind/colors"),
+            fontFamily: {
+                sans: ["var(--font-poppins)"],
+                mono: ["var(--font-poppins)"],
+            },
             borderRadius: {
                 none: "0",
                 xs: "var(--rounded-xs)",

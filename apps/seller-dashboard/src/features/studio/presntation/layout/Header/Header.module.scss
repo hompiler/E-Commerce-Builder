@@ -16,7 +16,7 @@
   grid-template-areas: "back title" "back sub";
   gap: 2px 32px;
   grid-template-columns: auto 1fr;
-  border-inline-end: 1px solid var(--color-borders);
+  border-inline-end: 1px solid var(--color-border);
 
 
   button {

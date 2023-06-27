@@ -1,6 +1,27 @@
-//@import "../../../assets/styles/lib/positioning";
-//@import "../../../assets/styles/theme/colors";
+.button {
+  @apply min-w-[115px] px-4 rounded-[10px] text-[14px] font-medium leading-[19px] row;
 
-.container {
-  //background: $color-primary;
+  .svg {
+    transition: none;
+  }
+}
+
+.button.medium {
+  @apply h-[43px] w-fit;
+
+  .content {
+    margin-inline: auto;
+  }
+}
+
+.button.large {
+  @apply h-[56px] text-[16px] leading-[26px] justify-center;
+}
+
+.button.primary {
+  @apply icon-col-on-primary;
+}
+
+.button.outline {
+  @apply bg-transparent border border-primary text-primary border-[2.5px] hover:bg-primary icon-col-primary hover:icon-col-on-primary;
 }

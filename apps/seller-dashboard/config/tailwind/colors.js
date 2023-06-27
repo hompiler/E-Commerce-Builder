@@ -30,7 +30,7 @@ module.exports = {
     background: "var(--color-background)",
     "on-background": "var(--color-on-background)",
     "on-background-unfocused": "var(--color-on-background-unfocused)",
-    border: "var(--color-borders)",
+    border: "var(--color-border)",
     surface: "var(--color-surface)",
     "on-surface": "var(--color-on-surface)",
     "surface-variant": "var(--color-surface-variant)",

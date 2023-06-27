@@ -1,0 +1,35 @@
+.navLogo {
+  @apply h-[90px] w-full flex items-center;
+  transition: all var(--transition-time-nav) var(--transition-easing-nav);
+}
+
+.navLogo span {
+  @apply h4 inline-block;
+  transition: all var(--transition-time-nav) var(--transition-easing-nav);
+}
+
+.mate span {
+  @apply text-primary;
+}
+
+.mate {
+  transition: all var(--transition-time-nav) var(--transition-easing-nav);
+}
+
+.collapsed {
+  .extended {
+    opacity: 0;
+  }
+
+  .mate {
+    position: relative;
+    left: -71px;
+  }
+}
+
+.expanded {
+  .extended {
+    opacity: 1;
+  }
+}
+
