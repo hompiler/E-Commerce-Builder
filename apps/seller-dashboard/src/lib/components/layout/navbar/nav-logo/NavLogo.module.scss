@@ -1,5 +1,5 @@
 .navLogo {
-  @apply h-[90px] w-full flex items-center;
+  @apply h-[90px] w-full flex items-center mx-6;
   transition: all var(--transition-time-nav) var(--transition-easing-nav);
 }
 

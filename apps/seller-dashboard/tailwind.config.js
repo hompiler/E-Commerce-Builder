@@ -63,6 +63,13 @@ const baseTypographyPlugins = plugin(function ({
         lineHeight: "22px",
     };
 
+    const buttonMid = {
+        color: "var(--color-gray-950)",
+        fontSize: "14px",
+        fontWeight: "600",
+        lineHeight: "22px",
+    };
+
     const body1 = {
         color: "var(--color-gray-900)",
         fontSize: "16px",
@@ -109,6 +116,7 @@ const baseTypographyPlugins = plugin(function ({
         ".subtitle2": subtitle2,
         ".body1": body1,
         ".body2": body2,
+        ".button-md": buttonMid,
         ".caption": caption,
         ".overline": overline,
     });
@@ -157,6 +165,11 @@ const components = plugin(function ({ addComponents, theme }) {
             " -moz-user-select": "none",
             "-webkit-user-select": "none",
             "-ms-user-select": "none",
+        },
+        ".no-bullets": {
+            "list-style-type": "none",
+            padding: "0",
+            margin: "0",
         },
     });
 });

@@ -4,7 +4,7 @@ import React from "react";
 
 export default function NavRoutes({ routes }: { routes: Array<NavRoute> }) {
     return (
-        <ul className={styles.linksList}>
+        <ul className={styles.routesList}>
             {routes.map((route) => (
                 <NavItem key={route.path} {...route} />
             ))}
@@ -15,5 +15,5 @@ export default function NavRoutes({ routes }: { routes: Array<NavRoute> }) {
 export interface NavRoute {
     path: string;
     name: string;
-    icon: string;
+    icon: React.ReactNode;
 }

@@ -1,8 +1,9 @@
 .button {
   @apply min-w-[115px] px-4 rounded-[10px] text-[14px] font-medium leading-[19px] row;
 
-  .svg {
+  svg {
     transition: none;
+
   }
 }
 
@@ -12,10 +13,20 @@
   .content {
     margin-inline: auto;
   }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 }
 
 .button.large {
   @apply h-[56px] text-[16px] leading-[26px] justify-center;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .button.primary {
@@ -23,5 +34,5 @@
 }
 
 .button.outline {
-  @apply bg-transparent border border-primary text-primary border-[2.5px] hover:bg-primary icon-col-primary hover:icon-col-on-primary;
+  @apply bg-transparent border border-primary text-primary border-[2px] hover:bg-primary icon-col-primary hover:icon-col-on-primary;
 }

@@ -1,1 +1,3 @@
-export {default, getServerSideProps} from "../../features/products/ui/ProductPage";
+import { AllProductsPage } from "@features/products";
+
+export default AllProductsPage;

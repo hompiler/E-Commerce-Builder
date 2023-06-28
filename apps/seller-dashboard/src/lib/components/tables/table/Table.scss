@@ -1,0 +1,210 @@
+.tableContainer {
+  @apply bg-background ;
+
+}
+
+.tableContainer table {
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+
+
+th,
+td {
+  border: 1px solid transparent;
+}
+
+
+.tableContainer .ant-empty-description {
+  display: none;
+}
+
+.tableContainer .ant-table-container {
+  overflow: auto;
+  min-height: 300px;
+}
+
+
+.tableContainer thead .ant-table-cell {
+  padding: 0 !important;
+  padding-inline: 12px !important;
+  padding-block: 9px !important;
+  color: var(--color-gray-600) !important;
+  background: #f8f8f8 !important;
+  border-bottom: none !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  line-height: 16px;
+}
+
+//.tableContainer thead .ant-table-cell:after {
+//  @apply absolute flex top-[9px] bottom-[9px] right-0 rtl:left-0 w-[1px] bg-border;
+//  content: " ";
+//}
+
+.tableContainer thead .ant-table-cell:last-child:after,
+.tableContainer thead .ant-table-cell:first-child:after {
+  display: none;
+}
+
+
+.tableContainer thead {
+  white-space: nowrap;
+}
+
+.tableContainer .ant-table-cell {
+  padding: 0 !important;
+  padding-inline: 12px !important;
+  padding-block: 9px !important;
+}
+
+.tableContainer tbody .ant-table-cell {
+  font-weight: 500 !important;
+  color: rgba(0, 0, 0, 0.85) !important;
+  font-size: 14px !important;
+  line-height: 16px;
+
+}
+
+.tableContainer .ant-table-cell::before {
+  display: none !important;
+}
+
+
+.tableContainer .ant-pagination {
+  margin: 16px !important;
+}
+
+
+.tableContainer .ant-pagination li button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+}
+
+.tableContainer .ant-spin-dot-item {
+  background: var(--primaryColor);
+}
+
+.action {
+  padding: 0;
+  margin: 0;
+  outline-color: transparent;
+  background: transparent;
+  border-radius: 100px;
+  border: none;
+}
+
+.disableHeaders thead {
+  visibility: hidden;
+}
+
+.disableHeaders table {
+  margin-top: -41px;
+}
+
+.ant-table-placeholder {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.ant-table-placeholder > .ant-table-cell {
+  margin-inline: -16px !important;
+  height: 100%;
+}
+
+.table-empty-placeholder {
+  position: sticky;
+  right: 0;
+  width: fit-content;
+  height: 200px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-50%);
+  margin-inline-start: -80px;
+
+}
+
+
+.tableContainer .ant-table-selection-column {
+  @apply bg-gray-100 w-[48px];
+}
+
+.buttonIconSmall {
+  @apply transition-all  rounded-full hover:bg-gray-500 p-1 m-[-4px] cursor-pointer border-none bg-transparent outline-transparent centered;
+
+}
+
+.tableButton {
+  @apply transition-all  rounded-full hover:bg-gray-500 p-1 m-[-4px] cursor-pointer border-none bg-transparent outline-transparent centered;
+}
+
+.action {
+  position: sticky !important;
+  right: 0;
+  top: 0;
+}
+
+$border-radius: 10px;
+$border: 1px solid var(--color-gray-200);
+$border-header: 1px solid #f8f8f8;
+
+.tableContainer thead tr {
+  height: 49px;
+}
+
+.tableContainer tbody tr td {
+  border-top: $border !important;
+  border-bottom: $border !important;
+  height: 70px !important;
+}
+
+.tableContainer tbody tr td:first-child {
+  border-left: $border !important
+}
+
+.tableContainer tbody tr .ant-table-cell:last-child {
+  border-right: $border !important
+}
+
+
+.tableContainer thead tr .ant-table-cell {
+  border-top: $border-header !important;
+  border-bottom: $border-header !important;
+}
+
+.tableContainer thead tr .ant-table-cell:first-child {
+  border-left: $border-header !important
+}
+
+.tableContainer thead tr .ant-table-cell:last-child {
+  border-right: $border-header !important
+}
+
+
+.tableContainer tr td:first-child,
+.tableContainer thead .ant-table-cell:first-child {
+  border-top-left-radius: $border-radius;
+}
+
+.tableContainer tr td:last-child,
+.tableContainer thead .ant-table-cell:last-child {
+  border-top-right-radius: $border-radius;
+}
+
+.tableContainer tr td:first-child,
+.tableContainer thead .ant-table-cell:first-child {
+  border-bottom-left-radius: $border-radius;
+}
+
+.tableContainer tr td:last-child,
+.tableContainer thead .ant-table-cell:last-child {
+  border-bottom-right-radius: $border-radius;
+}
+

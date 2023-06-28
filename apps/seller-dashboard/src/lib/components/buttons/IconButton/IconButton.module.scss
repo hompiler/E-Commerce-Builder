@@ -1,18 +1,21 @@
 @import "../../../assets/styles/lib/positioning";
 
 .iconButton {
-  @include centered;
+  @apply centered icon-col-gray-950;
   width: 40px !important;
-  height: 40px;
-  background-color: var(--color-secondary);
-  fill: var(--color-on-secondary);
+  height: 40px !important;
+  background-color: var(--color-gray-200);
+  fill: var(--color-gray-950);
+  padding: 0 !important;
   border: none;
   box-shadow: none;
   outline: transparent;
-  border-radius: 10px;
+  border-radius: 6px;
 
   svg {
     transition: all 80ms ease-in;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   &.selection {
@@ -21,12 +24,16 @@
   }
 
   &:hover {
-    background-color: var(--color-secondary);
+    background-color: var(--color-primary-200);
+  }
+
+  &:active {
+    background-color: var(--color-primary-300);
   }
 
   &:hover svg, {
     fill: var(--color-primary);
-    scale: 1.1;
+    scale: 1.05;
   }
 
   &.selection:hover svg {

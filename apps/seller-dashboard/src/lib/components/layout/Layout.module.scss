@@ -2,8 +2,7 @@
   @apply fixed top-0 start-0 bottom-0 ;
 }
 
-//.layout .content {
-//  margin-top: var(--dimension-header-h);
-//  margin-inline-start: var(--dimension-nav-w-current);
-//  transition: margin-inline-start var(--transition-time-nav) var(--transition-easing-nav);
-//}
+.layout .content {
+  margin-inline-start: var(--dimension-nav-w-current);
+  transition: margin-inline-start var(--transition-time-nav) var(--transition-easing-nav);
+}

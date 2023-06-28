@@ -1,19 +1,25 @@
 import Button from "@components/buttons/Button";
 import { PlusIcon } from "@icons";
+import Input from "@components/form-components/input";
+import Form from "@components/form-components/form";
+import Page from "@layout/page";
 
 export default function Home() {
     return (
-        <div className="column gap-4">
-            <Button icon={<PlusIcon />} width={"medium"}>
-                Test
+        <Page prevTitle={"Products Page"} title={"Dashboard"} className="column gap-4">
+            <Form>
+                <Input
+                    icon={<PlusIcon />}
+                    label={"Placeholder"}
+                    placeholder="Placeholder"
+                />
+            </Form>
+            <Button variant={"outline"} icon={<PlusIcon />}>
+                Submit
             </Button>
-            <Button icon={<PlusIcon />} width={"large"}>Test</Button>
-            <Button icon={<PlusIcon />} width={"medium"} variant={"outline"}>
-                Test
+            <Button width={"large"} variant={"outline"} icon={<PlusIcon />}>
+                Submit
             </Button>
-            <Button icon={<PlusIcon />} width={"large"} variant={"outline"}>
-                Test
-            </Button>
-        </div>
+        </Page>
     );
 }

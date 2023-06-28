@@ -5,7 +5,7 @@ import { DefaultObject } from "@types";
 export default function useFormRules<T>(props: FormItemProps<T>) {
     return useMemo(() => {
         const rules: Array<DefaultObject> = [];
-        rules.concat(props.rules);
+        rules.concat(props.rules ?? []);
         if (props.required)
             rules.push({
                 required: true,

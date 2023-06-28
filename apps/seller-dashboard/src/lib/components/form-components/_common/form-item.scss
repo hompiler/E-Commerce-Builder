@@ -1,25 +1,22 @@
-$dimension-h-item: 33px;
+$dimension-h-item: 53px;
 
 @mixin form-item-wrapper {
-  border-radius: var(--rounded-sm);
-  border: 1px solid var(--color-border);
+  @apply icon-col-gray-300 px-4 py-4;
+  border-radius: 10px;
+  border: 2px solid var(--color-border);
 }
-@mixin form-item {
-  padding-inline: 12px;
-  font-size: 16px !important;
-  color: var(--color-gray-900);
-  font-weight: 500;
+
+@mixin form-item-wrapper-focus {
+  @apply icon-col-primary;
+  border-color: var(--color-primary) !important;
+
 }
 
 @mixin form-label-wrapper {
-  padding: 0 !important;
-  margin-bottom: 4px;
-  line-height: 20px;
-
+  @apply subtitle1 p-0 mb-1;
 }
 
 @mixin form-label {
-
   flex-direction: row-reverse;
   gap: 2px;
   font-size: 16px !important;
@@ -27,6 +24,13 @@ $dimension-h-item: 33px;
 }
 
 @mixin form-placeholder {
+  @apply subtitle1  ;
+  color: var(--color-gray-300);
+}
+
+@mixin form-item {
+  @apply subtitle1 px-4 py-4 ;
+  font-family: Poppins, sans-serif;
+  color: var(--color-gray-900);
   font-weight: 500;
-  color: var(--color-gray-500);
 }

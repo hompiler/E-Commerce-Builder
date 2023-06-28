@@ -19,3 +19,7 @@
 .lib-input input::placeholder {
   @include form-placeholder;
 }
+
+.lib-input .ant-input-affix-wrapper-focused {
+  @include form-item-wrapper-focus;
+}

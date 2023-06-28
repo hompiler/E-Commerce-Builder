@@ -22,6 +22,17 @@
 
 }
 
+.lib-form-item {
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.lib-form-item .ant-input-prefix {
+  margin-inline-end: 10px;
+}
+
 .lib-form-item.ant-form-item {
   margin: 0;
 }

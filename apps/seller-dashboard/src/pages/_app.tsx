@@ -5,6 +5,15 @@ import { Poppins } from "next/font/google";
 import Head from "next/head";
 import { AntConfigs } from "@assets/configs/AntConfigs";
 import Layout from "@layout/index";
+import { NavRoute } from "@layout/navbar/nav-routes";
+import {
+    BagLightIcon,
+    BuyLightIcon,
+    ChartLightIcon,
+    DashboardLightIcon,
+    DiscountLightIcon,
+    SettingsLightIcon,
+} from "@icons";
 
 export const poppins = Poppins({
     weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -13,7 +22,38 @@ export const poppins = Poppins({
 });
 
 function MarketMate({ Component, pageProps }: AppProps) {
-    console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
+    const routes: Array<NavRoute> = [
+        {
+            path: "/",
+            name: "Dashboard",
+            icon: <DashboardLightIcon />,
+        },
+        {
+            path: "/products",
+            name: "Products",
+            icon: <BagLightIcon />,
+        },
+        {
+            path: "/orders",
+            name: "Orders",
+            icon: <BuyLightIcon />,
+        },
+        {
+            path: "/discounts",
+            name: "Discounts",
+            icon: <DiscountLightIcon />,
+        },
+        {
+            path: "/Analytics",
+            name: "Analytics",
+            icon: <ChartLightIcon />,
+        },
+        {
+            path: "/settings",
+            name: "Settings",
+            icon: <SettingsLightIcon />,
+        },
+    ];
     return (
         <>
             <Head>
@@ -24,9 +64,9 @@ function MarketMate({ Component, pageProps }: AppProps) {
                     font-family: ${poppins.style.fontFamily};
                 }
             `}</style>
-            <div >
+            <div>
                 <AntConfigs>
-                    <Layout>
+                    <Layout routes={routes}>
                         <Component {...pageProps} />
                     </Layout>
                 </AntConfigs>

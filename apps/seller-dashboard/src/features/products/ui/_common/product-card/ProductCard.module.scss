@@ -1,0 +1,33 @@
+.container {
+  @apply column p-2 rounded-[6px] transition-all;
+}
+
+.container:hover {
+  @apply bg-gray-200 cursor-pointer;
+}
+
+.imageContainer {
+  @apply relative mb-2 h-[176px];
+
+  .category, .quantity {
+    @apply absolute bottom-2 px-2 py-[2px] rounded-[5px] text-[10px] leading-[22px] font-medium;
+  }
+
+  .category {
+    @apply start-2 text-white;
+    background: rgba(0, 0, 0, 0.50);;
+  }
+
+  .quantity {
+    @apply end-2
+  }
+}
+
+
+.imageContainer img {
+  @apply h-full  w-full object-cover rounded-[6px] ;
+}
+
+.sub {
+  @apply text-[10px] leading-[16px] font-medium;
+}
