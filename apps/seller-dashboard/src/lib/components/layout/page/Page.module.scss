@@ -14,11 +14,12 @@
 }
 
 .navigationTitle {
- @apply row;
+  @apply row;
 }
 
 .navigationTitle button {
-  @apply h-[40px] w-[40px] rounded-[10px] icon-col-gray-900 centered me-4 bg-transparent hover:bg-gray-200 active:bg-gray-300 cursor-pointer;
+  @apply h-[40px] w-[40px] rounded-[10px] icon-col-gray-900 centered me-4
+  bg-transparent hover:bg-gray-200 active:bg-gray-300 cursor-pointer;
   outline: none;
   border: 2px solid var(--color-gray-400);
 }

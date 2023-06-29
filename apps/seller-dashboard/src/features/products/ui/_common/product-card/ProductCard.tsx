@@ -3,6 +3,7 @@ import styles from "./ProductCard.module.scss";
 import Product from "@features/products/domain/models/product";
 import Image from "next/image";
 import products from "@/pages/products";
+import ProductStatusDot from "@features/products/ui/_common/product-card/product-status-dot";
 
 export default function ProductCard({ product }: { product: Product }) {
     return (
@@ -20,6 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
                         ? "Out of Stock"
                         : `${product.quantity} Left`}
                 </p>
+                <ProductStatusDot className="absolute top-2 end-2" isPublished={true} />
             </div>
             <p className="button-md">{product.name}</p>
             <div className="row-between">

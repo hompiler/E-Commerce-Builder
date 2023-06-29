@@ -3,6 +3,7 @@ import ProductCard from "@features/products/ui/_common/product-card";
 import styles from "./AllProducts.module.scss";
 import { Pagination } from "antd";
 import { useMemo, useState } from "react";
+import Link from "next/link";
 
 export default function ProductsGrid({ products }: { products: Product[] }) {
     const [page, setPage] = useState(1);
@@ -16,7 +17,9 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
         <div>
             <div className={styles.productsGrid}>
                 {currentProducts.map((product) => (
-                    <ProductCard key={product.id} product={product} />
+                    <Link key={product.id} href={`/products/${product.id}`}>
+                        <ProductCard  product={product} />
+                    </Link>
                 ))}
             </div>
             <div className="row justify-end mt-4">

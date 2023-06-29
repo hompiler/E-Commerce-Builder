@@ -1,0 +1,41 @@
+.container {
+  @apply flex flex-row gap-4 rounded-[10px] p-3 relative;
+  border: 1.5px solid var(--color-gray-300);
+}
+
+.container .imageWrapper {
+  @apply  h-[180px] w-[200px];
+
+  img {
+    @apply h-[180px] w-[200px] object-cover rounded-[5px];
+  }
+}
+
+.container .details {
+  @apply  column gap-0.5;
+}
+
+.reviews {
+  @apply text-[8px] underline text-primary-500 scale-75 ms-[-7px] mt-[2px];
+}
+
+.desc {
+    @apply text-[12px] text-gray-600 font-normal line-clamp-3 mt-0.5 me-[50px];
+}
+
+.category, .quantity {
+  @apply absolute px-2 py-[2px] rounded-[5px] text-[10px] leading-[22px] font-medium;
+}
+
+.category {
+  @apply absolute bottom-5 start-5 text-white;
+  background: rgba(0, 0, 0, 0.50);;
+}
+
+.quantity {
+  @apply end-3 bottom-3
+}
+
+.dot {
+  @apply absolute top-3 end-3;
+}

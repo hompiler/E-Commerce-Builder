@@ -10,86 +10,73 @@ const baseTypographyPlugins = plugin(function ({
     theme,
 }) {
     const h1 = {
-        color: "var(--color-gray-900)",
         fontSize: "64px",
         fontWeight: "600",
         lineHeight: "102px",
     };
     const h2 = {
-        color: "var(--color-gray-900)",
         fontSize: "48px",
         fontWeight: "600",
         lineHeight: "77px",
     };
     const h3 = {
-        color: "var(--color-gray-900)",
         fontSize: "32px",
         fontWeight: "600",
         lineHeight: "51px",
     };
 
     const h4 = {
-        color: "var(--color-gray-900)",
         fontSize: "24px",
         fontWeight: "600",
         lineHeight: "39px",
     };
 
     const h5 = {
-        color: "var(--color-gray-900)",
         fontSize: "20px",
         fontWeight: "600",
         lineHeight: "32px",
     };
 
     const h6 = {
-        color: "var(--color-gray-900)",
         fontSize: "16px",
         fontWeight: "600",
         lineHeight: "26px",
     };
 
     const subtitle1 = {
-        color: "var(--color-gray-900)",
         fontSize: "16px",
         fontWeight: "500",
         lineHeight: "26px",
         letterSpacing: "0.56px",
     };
     const subtitle2 = {
-        color: "var(--color-gray-900)",
         fontSize: "14px",
         fontWeight: "500",
         lineHeight: "22px",
     };
 
     const buttonMid = {
-        color: "var(--color-gray-950)",
         fontSize: "14px",
         fontWeight: "600",
         lineHeight: "22px",
     };
 
     const body1 = {
-        color: "var(--color-gray-900)",
         fontSize: "16px",
         lineHeight: "26px",
     };
 
     const body2 = {
-        color: "var(--color-gray-900)",
         fontSize: "14px",
         lineHeight: "22px",
     };
 
     const caption = {
-        color: "var(--color-gray-900)",
         fontSize: "12px",
         lineHeight: "19px",
     };
 
     const overline = {
-        color: "var(--color-gray-900)",
         fontSize: "12px",
         lineHeight: "19px",
         letterSpacing: "1.2px",

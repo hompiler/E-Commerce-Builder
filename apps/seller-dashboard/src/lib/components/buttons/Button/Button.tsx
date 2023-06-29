@@ -8,15 +8,19 @@ export default function Button({
     children,
     width,
     variant,
+    className,
     ...rest
 }: ButtonProps) {
     width ??= "medium";
     variant ??= "primary";
     return (
         <AntButton
-            className={[styles.button, styles[width], styles[variant]].join(
-                " "
-            )}
+            className={[
+                styles.button,
+                styles[width],
+                styles[variant],
+                className,
+            ].join(" ")}
             type="primary"
             {...rest}
         >
@@ -26,6 +30,7 @@ export default function Button({
 }
 
 interface ButtonProps extends AntdButtonProps {
+    className?: string;
     width?: "medium" | "large" | "small";
     variant?: "primary" | "outline" | "secondary";
     icon?: React.ReactNode;
