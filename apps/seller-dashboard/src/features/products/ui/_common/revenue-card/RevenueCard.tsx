@@ -1,4 +1,5 @@
 import React from "react";
+import { StaticImageData } from "next/image";
 
 export default function RevenueCard({
     title,
@@ -8,18 +9,19 @@ export default function RevenueCard({
 }: {
     title: string;
     amount: number;
-    background?: string;
+    background?: StaticImageData;
     children?: React.ReactNode;
 }) {
-    console.log({ background });
     return (
         <div
             className={[
                 "column justify-center p-3 h-full w-full rounded-[10px] bg-cover bg-center",
-                background
-                    ? `bg-[url(/images/${background})]`
-                    : "bg-primary-900",
             ].join(" ")}
+            style={{
+                background: background
+                    ? `url(${background.src})`
+                    : `linear-gradient(270deg, var(--color-primary-400) 0%, var(--color-primary-700) 100%)`,
+            }}
         >
             <p className="text-[13px] leading-[20px] font-medium text-gray-100 opacity-75">
                 {title}

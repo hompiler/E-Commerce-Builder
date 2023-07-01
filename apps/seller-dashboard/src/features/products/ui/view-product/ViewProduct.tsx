@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./ViewProduct.module.scss";
 import Page from "@layout/page";
-import IconButton from "@components/buttons/IconButton";
-import { EditLightIcon } from "@icons";
 import Button from "@components/buttons/Button";
 import ExtendedProductCard from "@features/products/ui/_common/extended-product-card";
 import Product from "@features/products/domain/models/product";
 import RevenueCard from "@features/products/ui/_common/revenue-card";
 import Table from "@components/tables/table";
+import RevOrangeImage from "~/public/images/rev-orange.png"
+import RevBlackImage from "~/public/images/rev-black.png"
 
 export default function ViewProduct({}) {
     const product = new Product(
@@ -31,18 +31,18 @@ export default function ViewProduct({}) {
                 </>
             }
         >
-            <div className="column lg:row gap-6 h-[206px] ">
+            <div className="column lg:row gap-6 lg:h-[206px] ">
                 <ExtendedProductCard className="flex-[5]" product={product} />
                 <div className="row lg:column h-full flex-[2] gap-4">
                     <RevenueCard
                         title={"Total Sales"}
                         amount={3000}
-                        background={"rev-orange.png"}
+                        background={RevOrangeImage}
                     />
                     <RevenueCard
                         title={"Total Revenue"}
                         amount={20000}
-                        background={"rev-black.png"}
+                        background={RevBlackImage}
                     />
                 </div>
             </div>

@@ -6,6 +6,7 @@ import { PlusIcon } from "@icons";
 import ProductsGrid from "@features/products/ui/all-products/products-grid";
 import Product from "@features/products/domain/models/product";
 import ProductsTable from "@features/products/ui/all-products/products-table";
+import Link from "next/link";
 
 export default function AllProducts({}) {
     const products1: Array<Product> = [
@@ -48,7 +49,11 @@ export default function AllProducts({}) {
     return (
         <Page
             title={"Products"}
-            actions={<Button icon={<PlusIcon />}>Add Product</Button>}
+            actions={
+                <Link href={"/products/add"}>
+                    <Button icon={<PlusIcon />}>Add Product</Button>
+                </Link>
+            }
             className={styles.container}
         >
             {/*<ProductsTable products={products} />*/}

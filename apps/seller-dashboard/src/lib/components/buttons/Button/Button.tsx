@@ -9,6 +9,7 @@ export default function Button({
     width,
     variant,
     className,
+    formType,
     ...rest
 }: ButtonProps) {
     width ??= "medium";
@@ -22,6 +23,7 @@ export default function Button({
                 className,
             ].join(" ")}
             type="primary"
+            htmlType={formType}
             {...rest}
         >
             <span className={styles.content}>{children}</span>
@@ -34,4 +36,5 @@ interface ButtonProps extends AntdButtonProps {
     width?: "medium" | "large" | "small";
     variant?: "primary" | "outline" | "secondary";
     icon?: React.ReactNode;
+    formType?: "button" | "submit" | "reset";
 }

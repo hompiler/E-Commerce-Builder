@@ -11,7 +11,7 @@ export default function TextArea(props: TextAreaProps) {
                 placeholder={props.placeholder}
                 onChange={
                     props.onChange
-                        ? (e) => props.onChange(e.target.value, e)
+                        ? (e) => props.onChange?.(e.target.value, e)
                         : undefined
                 }
             />

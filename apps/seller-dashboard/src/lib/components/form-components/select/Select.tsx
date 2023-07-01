@@ -7,15 +7,17 @@ import FormItemProps from "@components/form-components/_common/form-elements-pro
 export const Option = AntSelect.Option;
 
 export default function Select(props: SelectProps) {
+    props.options ??= [];
     return (
         <FormItemWrapper {...props}>
             <AntSelect
                 className="lib-select"
                 placeholder={props.placeholder}
                 allowClear
+                mode={props.multiple ? "multiple" : undefined}
                 showSearch={props.showSearch}
             >
-                {props.options?.length > 0
+                {props.options.length > 0
                     ? props.options.map(({ key, ...option }) => (
                           <Option key={key ?? option.name} {...option}>
                               {option.name}
@@ -28,11 +30,12 @@ export default function Select(props: SelectProps) {
 }
 
 interface SelectProps extends FormItemProps<string> {
-    options: Array<{
+    options?: Array<{
         key: string;
         name: string;
         value: string;
     }>;
-    children: React.ReactNode;
-    showSearch: boolean;
+    children?: React.ReactNode;
+    showSearch?: boolean;
+    multiple?: boolean;
 }
