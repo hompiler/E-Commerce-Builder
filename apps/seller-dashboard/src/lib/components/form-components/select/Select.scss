@@ -55,3 +55,7 @@
 .ant-select-clear {
   margin-inline-end: 2px;
 }
+
+.ant-select-open .ant-select-selector {
+  border-color: var(--color-primary) !important;
+}
