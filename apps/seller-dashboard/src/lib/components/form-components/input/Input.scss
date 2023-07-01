@@ -1,7 +1,17 @@
 @import "../_common/form-item";
 
 .lib-input .ant-form-item-control {
-  height: $dimension-h-item;
+  height: $dimension-h-item !important;
+  min-height: unset !important;
+}
+
+.lib-input .ant-input-affix-wrapper {
+  height: $dimension-h-item !important;
+  overflow: hidden;
+
+  input {
+    height: calc($dimension-h-item - 3px) !important;
+  }
 }
 
 .lib-input .ant-input-affix-wrapper {
@@ -12,7 +22,7 @@
 .lib-input .ant-input {
   @include form-item;
   @include form-item-wrapper;
-  height: $dimension-h-item;
+  height: $dimension-h-item !important;
 }
 
 .lib-input input::-webkit-input-placeholder,
@@ -20,6 +30,9 @@
   @include form-placeholder;
 }
 
-.lib-input .ant-input-affix-wrapper-focused {
+.lib-input .ant-input-affix-wrapper-focused,
+.lib-input input:focus,
+.lib-input input:active,
+.lib-input input:hover {
   @include form-item-wrapper-focus;
 }

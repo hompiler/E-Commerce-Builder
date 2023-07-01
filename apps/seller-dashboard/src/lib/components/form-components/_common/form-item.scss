@@ -1,4 +1,5 @@
-$dimension-h-item: 53px;
+$dimension-h-item: 46px;
+$dimension-h-item-big: 53px;
 
 @mixin form-item-wrapper {
   @apply icon-col-gray-300 px-4 py-4;
@@ -13,23 +14,22 @@ $dimension-h-item: 53px;
 }
 
 @mixin form-label-wrapper {
-  @apply subtitle1 p-0 mb-1;
+  @apply subtitle2 p-0 mb-1;
 }
 
 @mixin form-label {
   flex-direction: row-reverse;
   gap: 2px;
-  font-size: 16px !important;
-  font-weight: 500 !important;
+  @apply subtitle2;
 }
 
 @mixin form-placeholder {
-  @apply subtitle1  ;
+  @apply subtitle2;
   color: var(--color-gray-300);
 }
 
 @mixin form-item {
-  @apply subtitle1 px-4 py-4 ;
+  @apply subtitle2 px-4 py-4 ;
   font-family: Poppins, sans-serif;
   color: var(--color-gray-900);
   font-weight: 500;

@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./AddProduct.module.scss";
 import Page from "@layout/page";
 import Form from "@components/form-components/form";
 import Button from "@components/buttons/Button";
@@ -7,6 +6,7 @@ import Input from "@components/form-components/input";
 import Select from "@components/form-components/select";
 import Table from "@components/tables/table";
 import TextArea from "@components/form-components/text-area";
+import { PlusIcon } from "@icons";
 
 export default function AddProduct({}) {
     async function onAddProduct(data: object) {
@@ -29,6 +29,7 @@ export default function AddProduct({}) {
                 <section className="column gap-5">
                     <h2 className="h6">Main Information</h2>
                     <Input
+                        icon={<PlusIcon />}
                         name="name"
                         label="Product Title"
                         placeholder="Enter Product Title"
@@ -102,7 +103,7 @@ export default function AddProduct({}) {
                         placeholder="Collection"
                     />
                 </section>
-                <section className="col-span-2">
+                <section className="lg:col-span-2">
                     <h2 className="h6 mb-2">Product Variants</h2>
                     <Table dataSource={[]} columns={[]} />
                 </section>

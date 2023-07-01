@@ -18,7 +18,14 @@
 
 }
 
-.lib-input-area input::-webkit-input-placeholder,
-.lib-input-area input::placeholder {
+.lib-input-area textarea::-webkit-input-placeholder,
+.lib-input-area textarea::placeholder {
   @include form-placeholder;
+}
+
+.lib-input-area textarea:hover,
+.lib-input-area textarea:focus,
+.lib-input-area textarea:active,
+{
+  border-color: var(--color-primary) !important;
 }

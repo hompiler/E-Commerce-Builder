@@ -11,7 +11,14 @@
 .lib-select .ant-select-selector {
   @include form-item;
   @include form-item-wrapper;
+  border: 2px solid var(--color-border) !important;
+  padding: 0 !important;
 }
+
+.lib-select .ant-select-selector:hover {
+  border-color: var(--color-primary) !important;
+}
+
 
 .lib-select .ant-select-selector,
 .lib-select .ant-select-selection-item,
@@ -20,11 +27,25 @@
   height: $dimension-h-item !important;
   display: flex;
   align-items: center;
-  font-size: 16px;
+  width: 100% !important;
+  @apply subtitle2;
+}
+
+.lib-select .ant-select-selector, {
+  padding-inline: 12px !important;
+}
+
+.lib-select .ant-select-selection-search-input {
+  padding: 0 -16px !important;
+  margin: 0 !important;
+  margin-top: -4px !important;
+  position: relative !important;
+  @apply start-[-6px];
 }
 
 .lib-select .ant-select-selection-placeholder {
   @include form-placeholder;
+  padding-inline: 4px !important;
 }
 
 .lib-select .ant-select-arrow {
