@@ -21,6 +21,7 @@ export default function AddProduct({}) {
                 prevTitle="Products List"
                 actions={
                     <>
+                        <Button variant={"outline"}>Save as Draft</Button>
                         <Button formType={"submit"}>Publish</Button>
                     </>
                 }
