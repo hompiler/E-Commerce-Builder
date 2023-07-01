@@ -23,6 +23,10 @@
   @include form-placeholder;
 }
 
+.lib-input-area textarea {
+  height: 146px;
+}
+
 .lib-input-area textarea:hover,
 .lib-input-area textarea:focus,
 .lib-input-area textarea:active,

@@ -7,6 +7,7 @@ import Select from "@components/form-components/select";
 import Table from "@components/tables/table";
 import TextArea from "@components/form-components/text-area";
 import { PlusIcon } from "@icons";
+import FileInput from "@components/form-components/file-input";
 
 export default function AddProduct({}) {
     async function onAddProduct(data: object) {
@@ -34,14 +35,14 @@ export default function AddProduct({}) {
                         label="Product Title"
                         placeholder="Enter Product Title"
                     />
-                    <div className="h-full">
-                        <TextArea
-                            className="h-full"
-                            name="description"
-                            label="Description"
-                            placeholder="Short description..."
-                        />
-                    </div>
+                    <TextArea
+                        defaultHeight={121}
+                        className="h-full"
+                        name="description"
+                        label="Description"
+                        placeholder="Short description..."
+                    />
+                    <FileInput name="images" label="Product Images" />
                 </section>
                 <section className="column gap-5">
                     <h2 className="h6">Pricing</h2>

@@ -1,0 +1,29 @@
+@import "../_common/form-item";
+
+
+.lib-actual-upload {
+  @apply bordered border-[2px] rounded-[10px] p-2;
+}
+
+.lib-actual-upload .ant-upload-list-picture-card {
+  @apply flex  flex-nowrap overflow-x-auto ps-0.5 ;
+}
+
+.lib-actual-upload .ant-upload-list-item,
+.lib-actual-upload .ant-upload-list-item-uploading,
+.lib-actual-upload .ant-upload,
+.lib-actual-upload .ant-upload-select {
+  height: 217px !important;
+  width: 190px !important;
+  flex-shrink: 0 !important;
+}
+
+.lib-actual-upload .ant-upload-list-item-container {
+  width: unset !important;
+  height: 100% !important;
+}
+
+.lib-actual-upload .ant-upload-list-item-uploading {
+  display: flex;
+
+}

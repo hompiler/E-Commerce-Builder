@@ -7,6 +7,12 @@ export default function TextArea(props: TextAreaProps) {
     return (
         <FormItemWrapper {...props} className="lib-input-area">
             <Input.TextArea
+                className={props.className}
+                style={{
+                    height: props.defaultHeight
+                        ? `${props.defaultHeight}px`
+                        : "150px",
+                }}
                 value={props.value}
                 placeholder={props.placeholder}
                 onChange={
@@ -19,4 +25,6 @@ export default function TextArea(props: TextAreaProps) {
     );
 }
 
-interface TextAreaProps extends FormItemProps<string> {}
+interface TextAreaProps extends FormItemProps<string> {
+    defaultHeight?: number;
+}
