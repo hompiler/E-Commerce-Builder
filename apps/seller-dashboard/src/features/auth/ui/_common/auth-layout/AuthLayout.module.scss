@@ -1,0 +1,58 @@
+.container {
+  @apply h-screen flex;
+}
+
+
+.imageSection {
+  @apply flex-[2] bg-primary-100  max-w-[500px]
+  flex flex-col relative overflow-hidden hidden lg:flex;
+  isolation: isolate;
+
+  &::before {
+    content: " ";
+    @apply absolute inset-0 ;
+    z-index: -1;
+    background-image: url("../../../../../../public/images/auth-background.svg");
+    opacity: 0.05;
+  }
+
+
+  h1 {
+    @apply h4 mt-[20%] mb-3 mx-10;
+  }
+
+  p {
+    @apply h3  mb-10 mx-10;
+  }
+
+  .imageContainer {
+    height: 100%;
+    width: 100%;
+    @apply column justify-end items-center;
+
+    img {
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+
+}
+
+.formSection {
+  @apply flex-[3] column justify-center items-stretch px-10;
+
+  & > * {
+    @apply w-[100%] md:w-[70%] lg:w-[60%] mx-auto;
+  }
+}
+
+.titleName {
+  font-size: 32px;
+
+  font-weight: 600;
+  color: var(--color-brand-400, #EC7860);
+
+}
+
+
+

@@ -7,8 +7,10 @@ import ProductsGrid from "@features/products/ui/all-products/products-grid";
 import Product from "@features/products/domain/models/product";
 import ProductsTable from "@features/products/ui/all-products/products-table";
 import Link from "next/link";
+import useDisableNavigation from "@layout/helpers/layout-context/use-disable-navigation";
 
 export default function AllProducts({}) {
+
     const products1: Array<Product> = [
         new Product(
             "1",

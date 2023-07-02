@@ -8,8 +8,10 @@ import Table from "@components/tables/table";
 import TextArea from "@components/form-components/text-area";
 import { PlusIcon } from "@icons";
 import FileInput from "@components/form-components/file-input";
+import useDisableNavigation from "@layout/helpers/layout-context/use-disable-navigation";
 
 export default function AddProduct({}) {
+
     async function onAddProduct(data: object) {
         // console.log("D")
     }
