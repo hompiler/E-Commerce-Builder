@@ -23,10 +23,25 @@
   box-sizing: border-box;
 }
 
-
 html {
   background: var(--color-background);
   color: var(--color-on-background);
+}
+
+.auth-bg {
+  position: relative;
+  isolation: isolate;
+  background-color: var(--color-primary-100);
+  padding: 32px;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: url("../../../../public/images/auth-background.svg");
+    opacity: 0.03;
+  }
 }
 
 /* width */

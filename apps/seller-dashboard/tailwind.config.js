@@ -15,9 +15,9 @@ const baseTypographyPlugins = plugin(function ({
         lineHeight: "102px",
     };
     const h2 = {
-        fontSize: "48px",
+        fontSize: "40px",
         fontWeight: "600",
-        lineHeight: "77px",
+        lineHeight: "64px",
     };
     const h3 = {
         fontSize: "32px",
@@ -306,6 +306,7 @@ module.exports = {
             boxShadow: {
                 container: "var(--shadow-container)",
                 action: "var(--shadow-action)",
+                card: "0px 25px 40px 0px rgba(23, 6, 3, 0.05)"
             },
         },
     },
