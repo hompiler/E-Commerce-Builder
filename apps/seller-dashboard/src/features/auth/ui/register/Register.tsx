@@ -10,7 +10,7 @@ import Link from "next/link";
 export default function Register({}) {
     useDisableNavigation();
     return (
-        <AuthLayout image={"/images/register-icon.svg"} maxWidth={"70%"}>
+        <AuthLayout image={"/images/register-icon.svg"} maxWidth={"90%"}>
             <Form onFinish={() => {}}>
 
                 <div className={"column gap-6"}>

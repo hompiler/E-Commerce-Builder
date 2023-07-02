@@ -10,7 +10,8 @@ export default function Login({}) {
     useDisableNavigation();
 
     return (
-        <AuthLayout image={"/images/login-icon.svg"}>
+        <AuthLayout image={"/images/login-icon.svg"}
+        >
             <Form onFinish={() => {}}>
                 <div className={"column gap-6"}>
                     <div>

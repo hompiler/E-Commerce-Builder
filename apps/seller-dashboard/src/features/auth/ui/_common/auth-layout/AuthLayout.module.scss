@@ -28,7 +28,7 @@
   .imageContainer {
     height: 100%;
     width: 100%;
-    @apply column justify-end items-center;
+    @apply column justify-end items-center ps-10;
 
     img {
       width: 100%;
