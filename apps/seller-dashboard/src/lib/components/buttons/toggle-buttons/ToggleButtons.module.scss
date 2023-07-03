@@ -1,0 +1,35 @@
+.container button {
+  color: var(--color-gray-500);
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 19px;
+  background-color: #fafafa !important;
+  padding-inline: 16px;
+  height: 46px;
+  border: 2px solid var(--color-border);
+  border-inline-end: none;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+
+.container button:first-child {
+  border-start-start-radius: 10px;
+  border-end-start-radius: 10px;
+}
+
+.container button:last-child {
+  border-start-end-radius: 10px;
+  border-end-end-radius: 10px;
+  border-inline-end: 2px solid var(--color-border);
+}
+
+.container button:hover {
+  background-color: var(--color-gray-200) !important;
+}
+
+.selected {
+    color: var(--color-primary) !important;
+}
+
