@@ -4,7 +4,7 @@ import Select from "@components/form-components/select";
 import Input from "@components/form-components/input";
 import ToggleButtons from "@components/buttons/toggle-buttons";
 
-export default function Filters({}) {
+export default function Filters({ children }: { children?: React.ReactNode }) {
     return (
         <div className={styles.container}>
             <div className={styles.firstSection}>
@@ -26,6 +26,7 @@ export default function Filters({}) {
                         },
                     ]}
                 />
+                {children}
             </div>
         </div>
     );
