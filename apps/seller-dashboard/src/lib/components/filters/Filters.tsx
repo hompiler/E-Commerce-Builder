@@ -14,6 +14,7 @@ export default function Filters({}) {
             </div>
             <div className={styles.secondSection}>
                 <ToggleButtons
+                    selectedItem={"Published"}
                     items={[
                         {
                             name: "Published",

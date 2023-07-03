@@ -1,5 +1,17 @@
 .container {
-  @apply row-between;
+  @apply row-between mb-6;
+}
+
+.container > * {
+  scale: 0.85;
+}
+
+.container .firstSection {
+  transform-origin: left;
+}
+
+.container .secondSection {
+  transform-origin: right;
 }
 
 .container .firstSection {
