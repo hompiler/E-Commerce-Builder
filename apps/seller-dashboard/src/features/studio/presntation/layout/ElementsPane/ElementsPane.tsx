@@ -48,11 +48,12 @@ export default function ElementsPane({ onAddItem }: any) {
                         >
                             {[4, 30, 4].map((width, index) => (
                                 <div
+                                    key={index}
                                     style={{
                                         width: `${width}px`,
                                         height: "24px",
                                         borderRadius: "2px",
-                                        background: "white",
+                                        background: "var(--color-gray-700)",
                                     }}
                                 ></div>
                             ))}
@@ -73,11 +74,12 @@ export default function ElementsPane({ onAddItem }: any) {
                         >
                             {Array.from({ length: 4 }).map((width, index) => (
                                 <div
+                                    key={index}
                                     style={{
                                         width: `16px`,
                                         height: "16px",
                                         borderRadius: "2px",
-                                        background: "white",
+                                        background: "var(--color-gray-700)",
                                     }}
                                 ></div>
                             ))}
@@ -130,10 +132,11 @@ export default function ElementsPane({ onAddItem }: any) {
                     preview: (
                         <p
                             style={{
-                                color: "white",
+                                color: "var(--color-gray-700)",
                                 border: "1px solid #444",
                                 padding: "10px 16px",
                                 borderRadius: "8px",
+                                outline: "none",
                             }}
                         >
                             Lorem Ipsum Lorem Ipsum
@@ -151,7 +154,8 @@ export default function ElementsPane({ onAddItem }: any) {
                                     {},
                                     new Heading(
                                         (index + 1) as HeadingLevel,
-                                        {},
+                                        {
+                                        },
                                         `Heading ${index + 1}`
                                     )
                                 );
@@ -161,7 +165,7 @@ export default function ElementsPane({ onAddItem }: any) {
                                 return (
                                     <div
                                         style={{
-                                            color: "white",
+                                            color: "var(--color-gray-700)",
                                             border: "1px solid #444",
                                             padding: "10px 16px",
                                             borderRadius: "8px",

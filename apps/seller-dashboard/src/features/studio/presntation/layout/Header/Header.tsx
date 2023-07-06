@@ -9,8 +9,8 @@ export default function Header({ className, onPublish }: any) {
         <header className={[className, styles.header].join(" ")}>
             <div className={styles.title}>
                 <IconButton icon={<BackIcon />} />
-                <h1>Hazem Website</h1>
-                <p>www.hompiler.com</p>
+                <h1>Hazem's Store</h1>
+                <p>hazem.marketmate.com</p>
             </div>
             <div>
                 <Button onClick={onPublish}>Publish</Button>

@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./PreviewMode.module.scss";
 import testingPages from "@studio/testing";
 import Head from "next/head";
+import useDisableNavigation from "@layout/helpers/layout-context/use-disable-navigation";
 
 export default function PreviewMode({}) {
+    useDisableNavigation();
     const page = testingPages["home"];
     return (
         <div id="marketmate-studio">

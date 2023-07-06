@@ -10,7 +10,8 @@
 }
 
 .title {
-  width: 236px;
+  min-width: 236px;
+  padding-inline-end: 24px;
   align-items: center;
   display: grid;
   grid-template-areas: "back title" "back sub";
@@ -25,14 +26,12 @@
 
   h1 {
     @include selectable;
-
+    @apply h6;
     margin-top: 3.5px;
     display: inline-block;
     grid-area: title;
     font-weight: 600;
     font-size: 14px;
-    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    height: fit-content;
   }
 
   p {

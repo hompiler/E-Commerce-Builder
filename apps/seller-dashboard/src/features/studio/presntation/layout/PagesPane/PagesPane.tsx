@@ -11,7 +11,10 @@ export default function PagesPane({}) {
             <section>
                 <ul>
                     {Object.entries(allPages).map(([key, page]) => (
-                        <li onClick={() => router.push(`?page=${key}`)}>
+                        <li
+                            key={key}
+                            onClick={() => router.push(`?page=${key}`)}
+                        >
                             {page.head.title}
                         </li>
                     ))}

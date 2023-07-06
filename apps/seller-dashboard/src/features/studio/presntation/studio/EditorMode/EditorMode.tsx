@@ -8,23 +8,22 @@ import Item from "@studio/domain/models/item";
 import Container from "@studio/domain/models/container";
 import Element from "@studio/domain/models/element";
 import getSelectedItems from "@studio/domain/selected-item-finder";
+import useDisableNavigation from "@layout/helpers/layout-context/use-disable-navigation";
 
-const testItem = new Container(
-    "div",
-    {
-        styles: {
-            padding: {
-                value: "16px",
-            },
-            margin: {
-                value: "4px",
-            },
+const testItem = new Container("div", {
+    styles: {
+        padding: {
+            value: "16px",
         },
-        id: "home-page",
+        margin: {
+            value: "4px",
+        },
     },
-);
+    id: "home-page",
+});
 export default function EditorMode({}) {
     // const testingPages = testing;
+    useDisableNavigation();
     const router = useRouter();
     const currentPageKey: string = router.query.page?.toString() ?? "home";
     // useEffect(() => {
