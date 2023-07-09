@@ -101,22 +101,17 @@ export default function AddProduct({}) {
                             placeholder="0"
                         />
                     </div>
-                    <Select
-                        options={[]}
+                    <Input
                         name="tags"
                         label="Tags"
                         placeholder="Tags"
-                        multiple
                     />
-                    <Select
-                        options={[]}
+                    <Input
                         name="categories"
                         label="Categories"
                         placeholder="Categories"
-                        multiple
                     />
-                    <Select
-                        options={[]}
+                    <Input
                         name="collection"
                         label="Collection"
                         placeholder="Collection"
