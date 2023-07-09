@@ -22,6 +22,6 @@ export default class Product {
     }
 
     get priceFormatted() {
-        return this.priceRange.map(price => `${price} EGP`).join(" - ")
+        return this.priceRange[0] + " EGP"
     }
 }

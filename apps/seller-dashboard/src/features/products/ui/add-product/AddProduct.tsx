@@ -9,15 +9,31 @@ import TextArea from "@components/form-components/text-area";
 import { PlusIcon } from "@icons";
 import FileInput from "@components/form-components/file-input";
 import useDisableNavigation from "@layout/helpers/layout-context/use-disable-navigation";
+import { message } from "antd";
+import { useRouter } from "next/router";
 
 export default function AddProduct({}) {
+    const [messageApi, contextHolder] = message.useMessage();
+    const router = useRouter();
 
     async function onAddProduct(data: object) {
-        // console.log("D")
+        messageApi.loading("Adding Product...", 0);
+        setTimeout(() => {
+            messageApi.open({
+                type: "success",
+                content: "Product Added Successfully!",
+            });
+        }, 700);
+
+        setTimeout(() => {
+            router.push("/products/final");
+        }, 1000);
     }
 
     return (
         <Form onFinish={onAddProduct}>
+            {contextHolder}
+
             <Page
                 className={"grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-6"}
                 title="Add Product"

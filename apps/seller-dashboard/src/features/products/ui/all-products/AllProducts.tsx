@@ -10,38 +10,43 @@ import Link from "next/link";
 import useDisableNavigation from "@layout/helpers/layout-context/use-disable-navigation";
 import Filters from "@components/filters";
 
-export default function AllProducts({}) {
+export default function AllProducts({
+    otherProducts,
+}: {
+    otherProducts?: Array<Product>;
+}) {
     const products1: Array<Product> = [
         new Product(
             "1",
-            "Ravin Men T-Shirt",
-            [300, 350],
+            "Black Men T-Shirt",
+            [200, 200],
             3000,
-            250,
-            "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/70/365271/1.jpg?2008",
+            100,
+            "https://img.freepik.com/premium-photo/black-tshirt-mockup-isolated-grey-background_114853-571.jpg",
             "T-Shirt"
         ),
         new Product(
             "1",
-            "Ravin Men T-Shirt",
+            "White Men T-Shirt",
             [300, 350],
             3000,
-            250,
-            "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/70/365271/1.jpg?2008",
+            0,
+            "https://img.freepik.com/premium-photo/white-tshirt-mockup-isolated-grey-background_114853-572.jpg",
             "T-Shirt"
         ),
         new Product(
             "1",
-            "Ravin Men T-Shirt",
-            [300, 350],
+            "Brown Men Trousers",
+            [450, 350],
             3000,
-            250,
-            "https://eg.jumia.is/unsafe/fit-in/500x500/filters:fill(white)/product/70/365271/1.jpg?2008",
-            "T-Shirt"
+            14,
+            "https://cdn11.bigcommerce.com/s-axz3gp0dm3/images/stencil/1280x1280/products/3328/20295/MT21-Mens-Sand-Weekday-Pants__18312.1680086886.jpg?c=1",
+            "Trousers"
         ),
     ];
 
     const products = [
+        ...(otherProducts ?? []),
         ...products1,
         ...products1,
         ...products1,
@@ -59,8 +64,8 @@ export default function AllProducts({}) {
             className={styles.container}
         >
             <Filters />
-            {/*<ProductsTable products={products} />*/}
-            <ProductsGrid products={products} />
+            <ProductsTable products={products} />
+            {/*<ProductsGrid products={products} />*/}
         </Page>
     );
 }
