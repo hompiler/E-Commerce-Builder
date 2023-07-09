@@ -10,12 +10,29 @@ export default function PagesPane({}) {
         <div className={styles.container}>
             <section>
                 <ul>
-                    {Object.entries(allPages).map(([key, page]) => (
+                    {[
+                        {
+                            key: "home",
+                            title: "Home",
+                        },
+                        {
+                            key: "allProducts",
+                            title: "All Products",
+                        },
+                        {
+                            key: "cart",
+                            title: "Cart",
+                        },
+                        {
+                            key: "privacyPolicy",
+                            title: "Privacy Policy",
+                        },
+                    ].map((page) => (
                         <li
-                            key={key}
-                            onClick={() => router.push(`?page=${key}`)}
+                            key={page.key}
+                            onClick={() => router.push(`?page=${page.key}`)}
                         >
-                            {page.head.title}
+                            {page.title}
                         </li>
                     ))}
                 </ul>

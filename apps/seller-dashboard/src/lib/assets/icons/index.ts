@@ -12,3 +12,5 @@ export {default as SettingsIcon } from "./settings.svg";
 export { default as BackLightIcon } from "~/public/images/icon/light/arrow-left-2.svg";
 export { default as EditLightIcon } from "~/public/images/icon/light/edit.svg";
 
+export { default as MenuIcon } from "~/public/images/menu.svg";
+export { default as CartAddIcon } from "~/public/images/cart-add.svg";

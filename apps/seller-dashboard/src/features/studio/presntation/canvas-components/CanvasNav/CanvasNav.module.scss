@@ -1,0 +1,41 @@
+.canvasNav {
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  container-type: inline-size;
+}
+
+.logoContainer {
+  max-height: 32px;
+
+}
+
+
+.linksDesktop {
+  @apply gap-4 text-[14px] ;
+  display: none;
+
+
+  & > * {
+    @apply hover:text-primary cursor-pointer hover:underline;
+  }
+}
+
+
+.menuButton {
+  @apply cursor-pointer;
+  width: 24px;
+  height: 24px;
+}
+
+
+@container (min-width: 450px) {
+
+  .linksDesktop {
+    display: flex;
+  }
+
+  .menuButton {
+    display: none;
+  }
+}

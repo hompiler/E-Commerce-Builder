@@ -9,33 +9,26 @@ import Container from "@studio/domain/models/container";
 import Element from "@studio/domain/models/element";
 import getSelectedItems from "@studio/domain/selected-item-finder";
 import useDisableNavigation from "@layout/helpers/layout-context/use-disable-navigation";
+import StudioRepository from "@studio/data/studio-repository";
 
-const testItem = new Container("div", {
-    styles: {
-        padding: {
-            value: "16px",
-        },
-        margin: {
-            value: "4px",
-        },
-    },
-    id: "home-page",
-});
 export default function EditorMode({}) {
     // const testingPages = testing;
     useDisableNavigation();
     const router = useRouter();
     const currentPageKey: string = router.query.page?.toString() ?? "home";
-    // useEffect(() => {
-    //     const currentPage =
-    //         localStorage.getItem(`page-${currentPageKey}`) ?? "";
-    //     const currentPageObj = JSON.parse(currentPage);
-    //     console.log({ currentPageObj });
-    //     setHomeChildren(currentPageObj ?? testItem);
-    // }, []);
-    // const currentPage = testingPages[currentPageKey];
 
-    const [homeChildren, setHomeChildren] = useState(testItem);
+    const [homeChildren, setHomeChildren] = useState(
+        new Container("div", {
+            styles: {
+                padding: {
+                    value: "16px",
+                },
+                margin: {
+                    value: "16px",
+                },
+            },
+        })
+    );
     const [selectedLevels, setSelectedLevels] = useState([-1]);
     const previousSelectedLevels = useRef<number[]>();
     const [newItem, setNewItem] = useState<Item>();
@@ -44,7 +37,16 @@ export default function EditorMode({}) {
         () => getSelectedItems(homeChildren, selectedLevels),
         [selectedLevels]
     );
+
     useEffect(() => {
+        console.log({ currentPageKey });
+        const page = StudioRepository.getById(currentPageKey);
+        console.log({ page });
+        setHomeChildren(page.component);
+    }, [currentPageKey]);
+
+    useEffect(() => {
+        console.log({ selectedLevels });
         console.log({
             selectedLevels: JSON.stringify(selectedLevels),
             previousSelectedLevels: JSON.stringify(
@@ -117,6 +119,10 @@ export default function EditorMode({}) {
             <StudioLayout
                 onItemChange={(item) => {
                     setChangedItem(item);
+                }}
+                onPublish={() => {
+                    console.log("hehe");
+                    StudioRepository.post(currentPageKey, homeChildren);
                 }}
                 selectedItem={selectedItem}
                 page={homeChildren}

@@ -16,6 +16,7 @@ interface StudioLayoutProps {
     selectedItem: Item;
     onItemChange: (item: Item) => any;
     pageName: string;
+    onPublish: () => any;
     // allPages: any;
 }
 
@@ -25,6 +26,7 @@ export default function StudioLayout({
     onSelect,
     selectedItem,
     onItemChange,
+    onPublish,
     pageName = "home",
 }: StudioLayoutProps) {
     const [selectedPane, setSelectedPane] = useState<string>("");
@@ -54,11 +56,7 @@ export default function StudioLayout({
             </div>
             <Header
                 className={styles.header}
-                onPublish={() => {
-                    console.log("here babe");
-                    const pageString = JSON.stringify(page);
-                    localStorage.setItem(`page-${pageName}`, pageString);
-                }}
+                onPublish={onPublish}
             />
             <Nav
                 className={styles.nav}

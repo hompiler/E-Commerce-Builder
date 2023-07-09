@@ -31,3 +31,11 @@
 .sub {
   @apply text-[10px] leading-[16px] font-medium;
 }
+
+.addToCart {
+  @apply absolute top-2 end-2 opacity-0 transition-all;
+}
+
+.container:hover .addToCart {
+  @apply opacity-100;
+}

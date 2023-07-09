@@ -4,6 +4,9 @@ import Product from "@features/products/domain/models/product";
 import Image from "next/image";
 import products from "@/pages/products";
 import ProductStatusDot from "@features/products/ui/_common/product-card/product-status-dot";
+import Button from "@components/buttons/Button";
+import IconButton from "@components/buttons/IconButton";
+import { CartAddIcon } from "@icons";
 
 export default function ProductCard({ product }: { product: Product }) {
     return (
@@ -21,14 +24,15 @@ export default function ProductCard({ product }: { product: Product }) {
                         ? "Out of Stock"
                         : `${product.quantity} Left`}
                 </p>
-                <ProductStatusDot className="absolute top-2 end-2" isPublished={true} />
+                <div className={styles.addToCart}>
+                    <IconButton icon={<CartAddIcon />} />
+                </div>
             </div>
             <p className="button-md">{product.name}</p>
             <div className="row-between">
                 <p className={[styles.sub, "text-gray-500"].join(" ")}>
                     {product.priceRange[0]}EGP - {product.priceRange[1]}EGP
                 </p>
-                <p className={styles.sub}>{product.sales} Sales</p>
             </div>
         </div>
     );

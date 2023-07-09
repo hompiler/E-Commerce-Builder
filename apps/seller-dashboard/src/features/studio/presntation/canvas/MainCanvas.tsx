@@ -1,5 +1,7 @@
 import React, { useMemo } from "react";
 import styles from "./MainCanvas.module.scss";
+import CanvasNav from "@studio/presntation/canvas-components/CanvasNav";
+import CanvasFooter from "@studio/presntation/canvas-components/CanvasFooter";
 
 export default function MainCanvas({
     className,
@@ -31,30 +33,13 @@ export default function MainCanvas({
                     color: colors.onBackground,
                 }}
             >
-                <nav
-                    style={{
-                        display: "flex",
-                        alignItems: "center",
-                        padding: "24px",
-                        borderBottom: `1px solid ${colors.onBackground}`,
-                    }}
-                >
-                    Nav
-                </nav>
+                <CanvasNav colors={colors} />
                 <main
                 // dangerouslySetInnerHTML={{ __html: page.html }}
                 >
                     {pageBody.component}
                 </main>
-                <footer
-                    style={{
-                        background: "#363636",
-                        color: "#fff",
-                        padding: "24px",
-                    }}
-                >
-                    Footer
-                </footer>
+                <CanvasFooter />
             </main>
         </div>
     );
